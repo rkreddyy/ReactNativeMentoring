@@ -24,6 +24,9 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+// import { Provider } from 'react-redux';
+// import store from './store';
+
 const App: () => React$Node = () => {
   return (
     <>
