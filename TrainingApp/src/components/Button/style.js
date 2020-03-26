@@ -8,7 +8,7 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 16,
-    backgroundColor: 'grey',
+    backgroundColor: '#808080',
   },
 
   title: {
@@ -16,6 +16,6 @@ export default StyleSheet.create({
   },
 
   containerLoading: {
-    backgroundColor: 'black',
+    backgroundColor: '#000000',
   }
 })

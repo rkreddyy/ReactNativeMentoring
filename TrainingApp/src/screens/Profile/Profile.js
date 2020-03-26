@@ -1,9 +1,10 @@
 import React from "react";
 import { View, Text } from "react-native";
+import style from "./style";
 
 const Profile = () => {
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+    <View style={style.container}>
       <Text>Profile Screen</Text>
     </View>
   );
