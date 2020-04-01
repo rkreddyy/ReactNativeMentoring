@@ -2,9 +2,10 @@ import React from 'react';
 import { Text, TextInput, TouchableHighlight, KeyboardAvoidingView } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import ValidationComponent from 'react-native-form-validator';
-import { BaseStyles } from '../../../theme';
-import style, { BackgroundGradientColors } from './style';
-import { FormWarning } from '../AuthWarning';
+import { BaseStyles } from '../../theme';
+import { signInStyles, BackgroundGradientColors } from './style';
+import { AuthWarning } from './AuthWarning';
+import { MAIN_ROUTES, AUTH_ROUTES } from "../../constants/routes";
 
 export class SignIn extends ValidationComponent {
     constructor(props) {
@@ -46,15 +47,6 @@ export class SignIn extends ValidationComponent {
 
     onRestorePassword() { }
 
-    onSignIn() {
-        this.checkEmailField();
-        this.checkPasswordField();
-        if (!this.isFormValid()) {
-        } else {
-            this.clearForm();
-        }
-    }
-
     validateForm() {
         const passwordValidator = new RegExp(
             '^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})',
@@ -71,17 +63,29 @@ export class SignIn extends ValidationComponent {
         this.setState({ email: '', password: '' });
     }
 
-    onSignUp() { }
+    onSignIn() {
+        this.checkEmailField();
+        this.checkPasswordField();
+        if (!this.isFormValid()) {
+        } else {
+            this.clearForm();
+            this.props.navigation.navigate(MAIN_ROUTES.DRAWER);
+        }
+    }
+
+    onSignUp() {
+        this.props.navigation.navigate(AUTH_ROUTES.SIGNUP);
+    }
 
     render() {
         return (
-            <LinearGradient colors={BackgroundGradientColors} style={style.container}>
-                <KeyboardAvoidingView behavior="position" style={style.container}>
-                    <Text style={style.title}>Ecommerce Store</Text>
+            <LinearGradient colors={BackgroundGradientColors} style={signInStyles.container}>
+                <KeyboardAvoidingView behavior="position" style={signInStyles.container}>
+                    <Text style={signInStyles.title}>Ecommerce Store</Text>
                     <TextInput
                         value={this.state.email}
                         onChangeText={text => this.onChangeEmail(text)}
-                        style={style.input}
+                        style={signInStyles.input}
                         placeholder={this.defaultEmailPlaceholder}
                         placeholderTextColor={BaseStyles.colors.black}
                         autoCompleteType="email"
@@ -90,11 +94,11 @@ export class SignIn extends ValidationComponent {
                         keyboardType="email-address"
                         textContentType="emailAddress"
                     />
-                    {this.emailError ? <FormWarning error={this.emailError} /> : null}
+                    {this.emailError ? <AuthWarning error={this.emailError} /> : null}
                     <TextInput
                         value={this.state.password}
                         onChangeText={text => this.onChangePassword(text)}
-                        style={style.input}
+                        style={signInStyles.input}
                         placeholder={this.defaultPasswordPlaceholder}
                         placeholderTextColor={BaseStyles.colors.black}
                         autoCompleteType="password"
@@ -102,27 +106,27 @@ export class SignIn extends ValidationComponent {
                         secureTextEntry={true}
                         textContentType="password"
                     />
-                    {this.passwordError ? <FormWarning error={this.passwordError} /> : null}
+                    {this.passwordError ? <AuthWarning error={this.passwordError} /> : null}
                     <TouchableHighlight
                         underlayColor={BaseStyles.colors.LinkHighlighUnderlay}
                         hitSlop={BaseStyles.buttonHitSlop}
-                        style={style.restorePassword}
+                        style={signInStyles.restorePassword}
                         onPress={() => this.onRestorePassword()}>
-                        <Text style={style.link}>Forgot Password?</Text>
+                        <Text style={signInStyles.link}>Forgot Password?</Text>
                     </TouchableHighlight>
                     <TouchableHighlight
-                        style={style.signInButton}
+                        style={signInStyles.signInButton}
                         underlayColor={BaseStyles.colors.lightBlue}
                         hitSlop={BaseStyles.buttonHitSlop}
                         onPress={() => this.onSignIn()}>
-                        <Text style={style.signInText}>Sign in</Text>
+                        <Text style={signInStyles.signInText}>Sign in</Text>
                     </TouchableHighlight>
                     <TouchableHighlight
                         underlayColor={BaseStyles.colors.LinkHighlighUnderlay}
                         hitSlop={BaseStyles.buttonHitSlop}
-                        style={style.signUp}
+                        style={signInStyles.signUp}
                         onPress={() => this.onSignUp()}>
-                        <Text style={style.link}>New Here? Sign Up?</Text>
+                        <Text style={signInStyles.link}>New Here? Sign Up?</Text>
                     </TouchableHighlight>
                 </KeyboardAvoidingView>
             </LinearGradient>

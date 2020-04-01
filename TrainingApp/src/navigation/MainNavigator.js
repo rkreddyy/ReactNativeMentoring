@@ -2,10 +2,9 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import DrawerNavigator from "./DrawerNavigator";
-// import AuthNavigtor from "./AuthNavigation";
 import Product from "../screens/Product";
-import Login from "../screens/Login";
-import SignUp from "../screens/Register";
+import { SignIn } from "../screens/Auth/SignIn";
+import { SignUp } from "../screens/Auth/SignUp";
 import { MAIN_ROUTES, AUTH_ROUTES } from "../constants/routes";
 
 const Stack = createStackNavigator();
@@ -19,8 +18,8 @@ export default React.forwardRef((props, ref) => {
           headerShown: false
         }}
       >
-        <Stack.Screen name={AUTH_ROUTES.SIGIN} component={Login} />
-        <Stack.Screen name={AUTH_ROUTES.SIGNOUT} component={SignUp} />
+        <Stack.Screen name={AUTH_ROUTES.SIGNIN} component={SignIn} />
+        <Stack.Screen name={AUTH_ROUTES.SIGNUP} component={SignUp} />
         <Stack.Screen
           name={MAIN_ROUTES.DRAWER}
           component={DrawerNavigator}

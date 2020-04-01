@@ -3,9 +3,10 @@ import { Text, TextInput, TouchableHighlight, KeyboardAvoidingView } from 'react
 import LinearGradient from 'react-native-linear-gradient';
 import ValidationComponent from 'react-native-form-validator';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { BaseStyles } from '../../../theme';
-import style, { BackgroundGradientColors } from './style';
-import { FormWarning } from '../AuthWarning';
+import { BaseStyles } from '../../theme';
+import { signOutStyles, BackgroundGradientColors } from './style';
+import { AuthWarning } from './AuthWarning';
+import { AUTH_ROUTES } from "../../constants/routes";
 
 export class SignUp extends ValidationComponent {
     constructor(props) {
@@ -92,14 +93,16 @@ export class SignUp extends ValidationComponent {
         this.setState({ email: '', password: '' });
     }
 
-    goToSignIn() { }
+    goToSignIn() {
+        this.props.navigation.navigate(AUTH_ROUTES.SIGNIN);
+     }
 
     render() {
         return (
-            <LinearGradient colors={BackgroundGradientColors} style={style.container}>
-                <KeyboardAvoidingView behavior="position" style={style.container}>
+            <LinearGradient colors={BackgroundGradientColors} style={signOutStyles.container}>
+                <KeyboardAvoidingView behavior="position" style={signOutStyles.container}>
                     <TouchableHighlight
-                        style={style.backIcon}
+                        style={signOutStyles.backIcon}
                         underlayColor={BaseStyles.colors.LinkHighlighUnderlay}
                         hitSlop={BaseStyles.buttonHitSlop}
                         onPress={() => this.goToSignIn()}>
@@ -109,11 +112,11 @@ export class SignUp extends ValidationComponent {
                             color={BaseStyles.colors.black}
                         />
                     </TouchableHighlight>
-                    <Text style={style.title}>Ecommerce Store</Text>
+                    <Text style={signOutStyles.title}>Ecommerce Store</Text>
                     <TextInput
                         value={this.state.fullName}
                         onChangeText={fullName => this.setState({ fullName })}
-                        style={style.input}
+                        style={signOutStyles.input}
                         placeholder={this.defaultNamePlaceholder}
                         placeholderTextColor={BaseStyles.colors.black}
                         autoCompleteType="name"
@@ -121,11 +124,11 @@ export class SignUp extends ValidationComponent {
                         keyboardType="default"
                         textContentType="name"
                     />
-                    {this.nameError ? <FormWarning error={this.nameError} /> : null}
+                    {this.nameError ? <AuthWarning error={this.nameError} /> : null}
                     <TextInput
                         value={this.state.email}
                         onChangeText={email => this.setState({ email })}
-                        style={style.input}
+                        style={signOutStyles.input}
                         placeholder={this.defaultEmailPlaceholder}
                         placeholderTextColor={BaseStyles.colors.black}
                         autoCompleteType="email"
@@ -134,11 +137,11 @@ export class SignUp extends ValidationComponent {
                         keyboardType="email-address"
                         textContentType="emailAddress"
                     />
-                    {this.emailError ? <FormWarning error={this.emailError} /> : null}
+                    {this.emailError ? <AuthWarning error={this.emailError} /> : null}
                     <TextInput
                         value={this.state.password}
                         onChangeText={password => this.setState({ password })}
-                        style={style.input}
+                        style={signOutStyles.input}
                         placeholder={this.defaultPasswordPlaceholder}
                         placeholderTextColor={BaseStyles.colors.black}
                         autoCompleteType="password"
@@ -146,11 +149,11 @@ export class SignUp extends ValidationComponent {
                         secureTextEntry={true}
                         textContentType="password"
                     />
-                    {this.passwordError ? <FormWarning error={this.passwordError} /> : null}
+                    {this.passwordError ? <AuthWarning error={this.passwordError} /> : null}
                     <TextInput
                         value={this.state.passwordConfirm}
                         onChangeText={passwordConfirm => this.setState({ passwordConfirm })}
-                        style={style.input}
+                        style={signOutStyles.input}
                         placeholder={this.defaultPasswordConfirmPlaceholder}
                         placeholderTextColor={BaseStyles.colors.black}
                         autoCompleteType="password"
@@ -158,20 +161,20 @@ export class SignUp extends ValidationComponent {
                         secureTextEntry={true}
                         textContentType="password"
                     />
-                    {this.passwordConfirmError ? <FormWarning error={this.passwordConfirmError} /> : null}
+                    {this.passwordConfirmError ? <AuthWarning error={this.passwordConfirmError} /> : null}
                     <TouchableHighlight
-                        style={style.signInButton}
+                        style={signOutStyles.signInButton}
                         underlayColor={BaseStyles.colors.lightBlue}
                         hitSlop={BaseStyles.buttonHitSlop}
                         onPress={() => this.onSignUp()}>
-                        <Text style={style.signInText}>Sign up</Text>
+                        <Text style={signOutStyles.signInText}>Sign up</Text>
                     </TouchableHighlight>
                     <TouchableHighlight
                         underlayColor={BaseStyles.colors.LinkHighlighUnderlay}
                         hitSlop={BaseStyles.buttonHitSlop}
-                        style={style.signIn}
+                        style={signOutStyles.signIn}
                         onPress={() => this.goToSignIn()}>
-                        <Text style={style.link}>Already have account? Sign In?</Text>
+                        <Text style={signOutStyles.link}>Already have account? Sign In?</Text>
                     </TouchableHighlight>
                 </KeyboardAvoidingView>
             </LinearGradient>
