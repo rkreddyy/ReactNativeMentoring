@@ -18,8 +18,3 @@ export const HOME_ROUTES = {
   CART: 'home/cart',
 }
 
-export const AUTH_ROUTES = {
-  LOGIN: 'login',
-  SIGNUP: 'signup'
-}
-

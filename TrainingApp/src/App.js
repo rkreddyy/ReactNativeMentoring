@@ -6,21 +6,17 @@
  * @flow
  */
 
-import React from 'react';
-// import { Provider } from 'react-redux';
-// import store from './store/store';
-// import MainNavigator from './navigation/MainNavigator';
-// import navigation from './navigation';
+import React from 'react'
+import 'react-native-gesture-handler';
+import MainNavigator from './navigation/MainNavigator';
+import navigation from './navigation';
 import { SignUp } from './components/Auth/SignUp';
 
 const App: () => React$Node = () => {
   return (
     <>
-      <SignUp />
-      {/* <MainNavigator ref={navigation.init} />
-      <Provider store={store}>
-        <SignUp />
-      </Provider> */}
+      <SignUp></SignUp>
+      {/* <MainNavigator ref={navigation.init} /> */}
     </>
   );
 };
