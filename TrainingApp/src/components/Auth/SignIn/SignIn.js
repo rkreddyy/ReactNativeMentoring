@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, TextInput, TouchableHighlight, KeyboardAvoidingView } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import ValidationComponent from 'react-native-form-validator';
-import { BaseStyles } from '../../../app.styles';
+import { BaseStyles } from '../../../theme';
 import style, { BackgroundGradientColors } from './style';
 import { FormWarning } from '../AuthWarning';
 

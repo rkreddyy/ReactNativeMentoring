@@ -15,8 +15,8 @@ import { SignUp } from './components/Auth/SignUp';
 const App: () => React$Node = () => {
   return (
     <>
-      <SignUp></SignUp>
-      {/* <MainNavigator ref={navigation.init} /> */}
+      {/* <SignUp></SignUp> */}
+      <MainNavigator ref={navigation.init} />
     </>
   );
 };
