@@ -1,7 +1,6 @@
 export const MAIN_ROUTES = {
   DRAWER: 'drawer',
-  PRODUCT: 'product',
-  AUTH: 'auth'
+  PRODUCT: 'product'
 }
 
 export const DRAWER_ROUTES = {
