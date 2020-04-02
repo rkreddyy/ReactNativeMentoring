@@ -1,14 +1,13 @@
 import Order from '../../models/order';
-
-export const ADD_ORDER = 'ADD_ORDER';
-export const SET_ORDERS = 'SET_ORDERS';
+import { ADD_ORDER, SET_ORDERS } from './actionTypes';
+import { BASE_URL } from '../../constants/endPoints';
 
 export const fetchOrders = () => {
   return async (dispatch, getState) => {
     const userId = getState().auth.userId;
     try {
       const response = await fetch(
-        `https://rn-complete-guide.firebaseio.com/orders/${userId}.json`
+        `${BASE_URL}/orders/${userId}.json`
       );
 
       if (!response.ok) {
@@ -41,7 +40,7 @@ export const addOrder = (cartItems, totalAmount) => {
     const userId = getState().auth.userId;
     const date = new Date();
     const response = await fetch(
-      `https://rn-complete-guide.firebaseio.com/orders/${userId}.json?auth=${token}`,
+      `${BASE_URL}/orders/${userId}.json?auth=${token}`,
       {
         method: 'POST',
         headers: {

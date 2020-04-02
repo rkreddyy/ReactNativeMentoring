@@ -45,8 +45,6 @@ export class SignIn extends ValidationComponent {
         this.setState({ password });
     }
 
-    onRestorePassword() { }
-
     validateForm() {
         const passwordValidator = new RegExp(
             '^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})',
@@ -110,8 +108,7 @@ export class SignIn extends ValidationComponent {
                     <TouchableHighlight
                         underlayColor={BaseStyles.colors.LinkHighlighUnderlay}
                         hitSlop={BaseStyles.buttonHitSlop}
-                        style={signInStyles.restorePassword}
-                        onPress={() => this.onRestorePassword()}>
+                        style={signInStyles.restorePassword}>
                         <Text style={signInStyles.link}>Forgot Password?</Text>
                     </TouchableHighlight>
                     <TouchableHighlight

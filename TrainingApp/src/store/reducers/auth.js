@@ -1,4 +1,4 @@
-import { AUTHENTICATE, LOGOUT } from '../actions/auth';
+import { AUTHENTICATE, LOGOUT } from '../actions/actionTypes';
 
 const initialState = {
   token: null,

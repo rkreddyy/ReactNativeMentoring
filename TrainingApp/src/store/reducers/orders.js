@@ -1,8 +1,11 @@
-import { ADD_ORDER, SET_ORDERS } from '../actions/orders';
+import { ADD_ORDER, SET_ORDERS } from '../actions/actionTypes';
 import Order from '../../models/order';
 
 const initialState = {
-  orders: []
+  isFetching: false,
+  orders: [],
+  ordersSuccess: false,
+  ordersError: null
 };
 
 export default (state = initialState, action) => {

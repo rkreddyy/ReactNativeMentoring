@@ -5,7 +5,7 @@ export const BaseStyles = {
     colors: {
         white: '#ffffff',
         black: '#000000',
-        red: 'red',
+        red: '#FF0000',
         lightBlue: '#00a8f3',
         Link: '#436bff',
         LinkHighlighUnderlay: '#d3d3d3',
