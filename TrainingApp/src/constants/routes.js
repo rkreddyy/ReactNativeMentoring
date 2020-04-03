@@ -1,20 +1,24 @@
 export const MAIN_ROUTES = {
-  DRAWER: 'main/drawer',
-  PRODUCT: 'main/product', 
+  DRAWER: 'drawer',
+  PRODUCT: 'product'
 }
 
 export const DRAWER_ROUTES = {
-  HOME: 'drawer/home',
-  SETTINGS: 'drawer/settings',
-  PRODUCT: 'drawer/product',
+  HOME: 'home',
+  SETTINGS: 'settings'
 }
 
 export const SHOP_ROUTES = {
-  PRODUCTS: 'shop/products',
+  PRODUCTS: 'products',
 }
 
 export const HOME_ROUTES = {
-  SHOP: 'home/shop',
-  CART: 'home/cart',
+  SHOP: 'shop',
+  CART: 'cart',
+}
+
+export const AUTH_ROUTES = {
+  LOGIN: 'login',
+  REGISTER: 'register'
 }
 

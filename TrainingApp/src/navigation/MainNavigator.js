@@ -3,7 +3,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import DrawerNavigator from "./DrawerNavigator";
 import Product from "../screens/Product";
-import { MAIN_ROUTES } from "../constants/routes";
+import { Login } from "../screens/Auth/Login";
+import { Register } from "../screens/Auth/Register";
+import { MAIN_ROUTES, AUTH_ROUTES } from "../constants/routes";
 
 const Stack = createStackNavigator();
 
@@ -11,11 +13,13 @@ export default React.forwardRef((props, ref) => {
   return (
     <NavigationContainer ref={ref}>
       <Stack.Navigator
-        initialRouteName={MAIN_ROUTES.DRAWER}
+        initialRouteName={MAIN_ROUTES.AUTH}
         screenOptions={{
-          headerBackTitle: "Back"
+          headerShown: false
         }}
       >
+        <Stack.Screen name={AUTH_ROUTES.LOGIN} component={Login} />
+        <Stack.Screen name={AUTH_ROUTES.REGISTER} component={Register} />
         <Stack.Screen
           name={MAIN_ROUTES.DRAWER}
           component={DrawerNavigator}
@@ -24,6 +28,7 @@ export default React.forwardRef((props, ref) => {
           }}
         />
         <Stack.Screen name={MAIN_ROUTES.PRODUCT} component={Product} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
