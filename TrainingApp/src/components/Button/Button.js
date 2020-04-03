@@ -1,24 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import { TouchableOpacity, ActivityIndicator } from "react-native";
-import Text from '../Text'
-import style from "./style";
+import Text from '../Text';
+import { Metrics } from '../../themes'
 
-const Button = props => {
-  const { title, loading } = props;
-  const onPress = () => {
-    if (loading) {
-      return null;
+const Button = ({
+  text,
+  showText = true,
+  loading,
+  onPress,
+  style,
+  textStyle,
+  disabled = false,
+  disableTimeout = 1000
+}) => {
+  const [disableButton, setDisableButton] = useState(disabled)
+  const handlePress = () => {
+    setDisableButton(true)
+    if (onPress) {
+      onPress()
     }
-
-    props.onPress && props.onPress();
+    setTimeout(() => {
+      setDisableButton(false)
+    }, disableTimeout)
   };
 
   return (
-    <TouchableOpacity style={[style.container, props.style]} onPress={onPress}>
-      <Text style={style.title}>{title}</Text>
-      {!!loading && <ActivityIndicator />}
+    <TouchableOpacity
+      activeOpacity={Metrics.buttons.pressOpacity}
+      style={style}
+      onPress={handlePress}
+      disabled={disableButton}
+    >
+      {showText ? (
+        <>
+          <Text style={textStyle}>
+            {text}
+          </Text>
+          {!!loading && <ActivityIndicator />}
+        </>
+      ) : null}
     </TouchableOpacity>
-  );
-};
+  )
+}
 
 export default React.memo(Button);

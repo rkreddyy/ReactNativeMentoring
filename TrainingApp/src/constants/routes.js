@@ -18,7 +18,7 @@ export const HOME_ROUTES = {
 }
 
 export const AUTH_ROUTES = {
-  SIGNIN: 'sigin',
-  SIGNUP: 'signup'
+  LOGIN: 'login',
+  REGISTER: 'register'
 }
 

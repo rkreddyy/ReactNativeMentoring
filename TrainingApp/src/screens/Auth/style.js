@@ -65,7 +65,7 @@ export const signInStyles = StyleSheet.create({
     }
 });
 
-export const signOutStyles = StyleSheet.create({
+export const signUpStyles = StyleSheet.create({
     container: {
         flex: 1,
     },

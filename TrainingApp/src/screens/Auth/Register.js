@@ -1,14 +1,16 @@
 import React from 'react';
-import { Text, TextInput, TouchableHighlight, KeyboardAvoidingView } from 'react-native';
+import { TextInput, TouchableHighlight, KeyboardAvoidingView } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import ValidationComponent from 'react-native-form-validator';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { BaseStyles } from '../../theme';
-import { signOutStyles, BackgroundGradientColors } from './style';
+import { signUpStyles, BackgroundGradientColors } from './style';
+import Button from '../../components/Button';
+import Text from '../../components/Text';
 import { AuthWarning } from './AuthWarning';
 import { AUTH_ROUTES } from "../../constants/routes";
 
-export class SignUp extends ValidationComponent {
+export class Register extends ValidationComponent {
     constructor(props) {
         super(props);
         this.state = { fullName: '', email: '', password: '', passwordConfirm: '' };
@@ -64,7 +66,7 @@ export class SignUp extends ValidationComponent {
         this.setState({ password });
     }
 
-    onSignUp() {
+    onSignUp = () => {
         this.checkNameField();
         this.checkEmailField();
         this.checkPasswordField();
@@ -93,16 +95,16 @@ export class SignUp extends ValidationComponent {
         this.setState({ email: '', password: '' });
     }
 
-    goToSignIn() {
-        this.props.navigation.navigate(AUTH_ROUTES.SIGNIN);
-     }
+    goToSignIn = () => {
+        this.props.navigation.navigate(AUTH_ROUTES.LOGIN);
+    }
 
     render() {
         return (
-            <LinearGradient colors={BackgroundGradientColors} style={signOutStyles.container}>
-                <KeyboardAvoidingView behavior="position" style={signOutStyles.container}>
-                    <TouchableHighlight
-                        style={signOutStyles.backIcon}
+            <LinearGradient colors={BackgroundGradientColors} style={signUpStyles.container}>
+                <KeyboardAvoidingView behavior="position" style={signUpStyles.container}>
+                    <Button
+                        style={signUpStyles.backIcon}
                         underlayColor={BaseStyles.colors.LinkHighlighUnderlay}
                         hitSlop={BaseStyles.buttonHitSlop}
                         onPress={() => this.goToSignIn()}>
@@ -111,12 +113,12 @@ export class SignUp extends ValidationComponent {
                             size={BaseStyles.fontSize.regular}
                             color={BaseStyles.colors.black}
                         />
-                    </TouchableHighlight>
-                    <Text style={signOutStyles.title}>Ecommerce Store</Text>
+                    </Button>
+                    <Text style={signUpStyles.title}>Ecommerce Store</Text>
                     <TextInput
                         value={this.state.fullName}
                         onChangeText={fullName => this.setState({ fullName })}
-                        style={signOutStyles.input}
+                        style={signUpStyles.input}
                         placeholder={this.defaultNamePlaceholder}
                         placeholderTextColor={BaseStyles.colors.black}
                         autoCompleteType="name"
@@ -128,7 +130,7 @@ export class SignUp extends ValidationComponent {
                     <TextInput
                         value={this.state.email}
                         onChangeText={email => this.setState({ email })}
-                        style={signOutStyles.input}
+                        style={signUpStyles.input}
                         placeholder={this.defaultEmailPlaceholder}
                         placeholderTextColor={BaseStyles.colors.black}
                         autoCompleteType="email"
@@ -141,7 +143,7 @@ export class SignUp extends ValidationComponent {
                     <TextInput
                         value={this.state.password}
                         onChangeText={password => this.setState({ password })}
-                        style={signOutStyles.input}
+                        style={signUpStyles.input}
                         placeholder={this.defaultPasswordPlaceholder}
                         placeholderTextColor={BaseStyles.colors.black}
                         autoCompleteType="password"
@@ -153,7 +155,7 @@ export class SignUp extends ValidationComponent {
                     <TextInput
                         value={this.state.passwordConfirm}
                         onChangeText={passwordConfirm => this.setState({ passwordConfirm })}
-                        style={signOutStyles.input}
+                        style={signUpStyles.input}
                         placeholder={this.defaultPasswordConfirmPlaceholder}
                         placeholderTextColor={BaseStyles.colors.black}
                         autoCompleteType="password"
@@ -162,20 +164,20 @@ export class SignUp extends ValidationComponent {
                         textContentType="password"
                     />
                     {this.passwordConfirmError ? <AuthWarning error={this.passwordConfirmError} /> : null}
-                    <TouchableHighlight
-                        style={signOutStyles.signInButton}
+                    <Button
+                        style={signUpStyles.signInButton}
                         underlayColor={BaseStyles.colors.lightBlue}
                         hitSlop={BaseStyles.buttonHitSlop}
-                        onPress={() => this.onSignUp()}>
-                        <Text style={signOutStyles.signInText}>Sign up</Text>
-                    </TouchableHighlight>
-                    <TouchableHighlight
+                        onPress={this.onSignUp}
+                        text='Register'
+                        textStyle={signUpStyles.signInText} />
+                    <Button
                         underlayColor={BaseStyles.colors.LinkHighlighUnderlay}
                         hitSlop={BaseStyles.buttonHitSlop}
-                        style={signOutStyles.signIn}
-                        onPress={() => this.goToSignIn()}>
-                        <Text style={signOutStyles.link}>Already have account? Sign In?</Text>
-                    </TouchableHighlight>
+                        style={signUpStyles.signIn}
+                        onPress={this.goToSignIn}
+                        text='Already have account? Sign In?'
+                        textStyle={signUpStyles.link} />
                 </KeyboardAvoidingView>
             </LinearGradient>
         );
