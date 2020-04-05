@@ -3,7 +3,6 @@ import {
     ScrollView,
     View,
     KeyboardAvoidingView,
-    StyleSheet,
     Button,
     ActivityIndicator,
     Alert
@@ -11,13 +10,13 @@ import {
 import LinearGradient from 'react-native-linear-gradient';
 import { useDispatch } from 'react-redux';
 
-import Input from './Input';
-import Card from './Card';
+import Input from '../../components/Input';
+import Card from '../../components/Card';
 import { Colors } from '../../themes';
+import styles, { BackgroundGradientColors } from './style';
 import * as authActions from '../../store/actions/auth';
 import { MAIN_ROUTES } from '../../constants/routes';
-
-const FORM_INPUT_UPDATE = 'FORM_INPUT_UPDATE';
+import { FORM_INPUT_UPDATE } from '../../store/actions/actionTypes';
 
 const formReducer = (state, action) => {
     if (action.type === FORM_INPUT_UPDATE) {
@@ -108,7 +107,7 @@ const AuthScreen = props => {
             keyboardVerticalOffset={50}
             style={styles.screen}
         >
-            <LinearGradient colors={['#ffedff', '#ffe3ff']} style={styles.gradient}>
+            <LinearGradient colors={BackgroundGradientColors} style={styles.gradient}>
                 <Card style={styles.authContainer}>
                     <ScrollView>
                         {/* <Input
@@ -150,7 +149,7 @@ const AuthScreen = props => {
                             ) : (
                                     <Button
                                         title={isSignup ? 'Sign Up' : 'Login'}
-                                        color={Colors.primary}
+                                        color={Colors.button}
                                         onPress={authHandler}
                                     />
                                 )}
@@ -158,7 +157,7 @@ const AuthScreen = props => {
                         <View style={styles.buttonContainer}>
                             <Button
                                 title={`Switch to ${isSignup ? 'Login' : 'Sign Up'}`}
-                                color={Colors.accent}
+                                color={Colors.button}
                                 onPress={() => {
                                     setIsSignup(prevState => !prevState);
                                 }}
@@ -174,25 +173,5 @@ const AuthScreen = props => {
 AuthScreen.navigationOptions = {
     headerTitle: 'Authenticate'
 };
-
-const styles = StyleSheet.create({
-    screen: {
-        flex: 1
-    },
-    gradient: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    authContainer: {
-        width: '80%',
-        maxWidth: 400,
-        maxHeight: 400,
-        padding: 20
-    },
-    buttonContainer: {
-        marginTop: 10
-    }
-});
 
 export default AuthScreen;
