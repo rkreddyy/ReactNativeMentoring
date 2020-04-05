@@ -148,7 +148,7 @@ export class Register extends ValidationComponent {
                         value={this.state.passwordConfirm}
                         onChangeText={passwordConfirm => this.setState({ passwordConfirm })}
                         style={ApplicationStyles.screen.input}
-                        placeholder={this.defaultPasswordConfirmPlaceholder}
+                        placeholder={this.defaultPasswordPlaceholder}
                         placeholderTextColor={Colors.black}
                         autoCompleteType="password"
                         importantForAutofill="yes"

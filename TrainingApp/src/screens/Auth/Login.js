@@ -16,8 +16,6 @@ export class Login extends ValidationComponent {
         this.state = { email: '', password: '' };
         this.emailError = '';
         this.passwordError = '';
-        this.defaultEmailPlaceholder = 'Email Address';
-        this.defaultPasswordPlaceholder = 'Password';
     }
 
     checkEmailField() {
@@ -87,7 +85,7 @@ export class Login extends ValidationComponent {
                         value={this.state.email}
                         onChangeText={text => this.onChangeEmail(text)}
                         style={ApplicationStyles.screen.input}
-                        placeholder={this.defaultEmailPlaceholder}
+                        placeholder='Email Adress'
                         placeholderTextColor={Colors.black}
                         autoCompleteType="email"
                         blurOnSubmit={true}
@@ -100,7 +98,7 @@ export class Login extends ValidationComponent {
                         value={this.state.password}
                         onChangeText={text => this.onChangePassword(text)}
                         style={ApplicationStyles.screen.input}
-                        placeholder={this.defaultPasswordPlaceholder}
+                        placeholder='Password'
                         placeholderTextColor={Colors.black}
                         autoCompleteType="password"
                         importantForAutofill="yes"
