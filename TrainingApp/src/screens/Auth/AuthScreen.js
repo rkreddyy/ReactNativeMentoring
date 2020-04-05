@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { useDispatch } from 'react-redux';
+import AsyncStorage from '@react-native-community/async-storage';
 
 import Input from '../../components/Input';
 import Card from '../../components/Card';
@@ -65,6 +66,19 @@ const AuthScreen = props => {
         }
     }, [error]);
 
+    useEffect(() => {
+        const tryLogin = async () => {
+            const userData = await AsyncStorage.getItem('userData');
+            if (!userData) {
+                props.navigation.navigate(AUTH_ROUTES.LOGIN);
+                return;
+            }
+            props.navigation.navigate(MAIN_ROUTES.DRAWER);
+        };
+
+        tryLogin();
+    }, [dispatch]);
+
     const authHandler = async () => {
         let action;
         if (isSignup) {
@@ -110,17 +124,42 @@ const AuthScreen = props => {
             <LinearGradient colors={BackgroundGradientColors} style={styles.gradient}>
                 <Card style={styles.authContainer}>
                     <ScrollView>
-                        {/* <Input
-                            id="email"
-                            label="E-Mail"
-                            keyboardType="email-address"
-                            required
-                            email
-                            autoCapitalize="none"
-                            errorText="Please enter a valid email address."
-                            onInputChange={inputChangeHandler}
-                            initialValue=""
-                        /> */}
+                        {
+                            isSignup &&
+                            <>
+                                <Input
+                                    id="firstName"
+                                    label="First Name"
+                                    keyboardType="default"
+                                    required
+                                    autoCapitalize="none"
+                                    errorText="Please enter valid First Name."
+                                    onInputChange={inputChangeHandler}
+                                    initialValue=""
+                                />
+                                <Input
+                                    id="lastName"
+                                    label="Last Name"
+                                    keyboardType="default"
+                                    required
+                                    autoCapitalize="none"
+                                    errorText="Please enter valid Last Name."
+                                    onInputChange={inputChangeHandler}
+                                    initialValue=""
+                                />
+                                <Input
+                                    id="email"
+                                    label="E-Mail"
+                                    keyboardType="email-address"
+                                    required
+                                    email
+                                    autoCapitalize="none"
+                                    errorText="Please enter a valid email address."
+                                    onInputChange={inputChangeHandler}
+                                    initialValue=""
+                                />
+                            </>
+                        }
                         <Input
                             id="username"
                             label="Username"
@@ -143,6 +182,24 @@ const AuthScreen = props => {
                             onInputChange={inputChangeHandler}
                             initialValue=""
                         />
+                        {
+                            isSignup &&
+                            <>
+                                <Input
+                                    id="passwordConfirm"
+                                    label="Confirm Password"
+                                    keyboardType="default"
+                                    secureTextEntry
+                                    required
+                                    minLength={5}
+                                    autoCapitalize="none"
+                                    errorText="Please enter a valid password."
+                                    onInputChange={inputChangeHandler}
+                                    initialValue=""
+                                />
+
+                            </>
+                        }
                         <View style={styles.buttonContainer}>
                             {isLoading ? (
                                 <ActivityIndicator size="small" color={Colors.primary} />
