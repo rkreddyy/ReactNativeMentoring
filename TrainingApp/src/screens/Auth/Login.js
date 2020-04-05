@@ -7,6 +7,7 @@ import { signInStyles, BackgroundGradientColors } from './style';
 import Button from '../../components/Button';
 import Text from '../../components/Text';
 import { AuthWarning } from './AuthWarning';
+import { ApplicationStyles, Colors } from '../../themes';
 import { MAIN_ROUTES, AUTH_ROUTES } from "../../constants/routes";
 
 export class Login extends ValidationComponent {
@@ -39,8 +40,12 @@ export class Login extends ValidationComponent {
         }
     }
 
-    onChange(text) {
-        this.setState({ text });
+    onChangeEmail(email) {
+        this.setState({email});
+    }
+
+    onChangePassword(password) {
+        this.setState({password});
     }
 
     validateForm() {
@@ -75,15 +80,15 @@ export class Login extends ValidationComponent {
 
     render() {
         return (
-            <LinearGradient colors={BackgroundGradientColors} style={signInStyles.container}>
-                <KeyboardAvoidingView behavior="position" style={signInStyles.container}>
-                    <Text style={signInStyles.title}>Ecommerce Store</Text>
+            <LinearGradient colors={BackgroundGradientColors} style={ApplicationStyles.screen.container}>
+                <KeyboardAvoidingView behavior="position" style={ApplicationStyles.screen.container}>
+                    <Text style={ApplicationStyles.screen.mainTitle}>Ecommerce Store</Text>
                     <TextInput
                         value={this.state.email}
-                        onChangeText={text => this.onChange(text)}
-                        style={signInStyles.input}
+                        onChangeText={text => this.onChangeEmail(text)}
+                        style={ApplicationStyles.screen.input}
                         placeholder={this.defaultEmailPlaceholder}
-                        placeholderTextColor={BaseStyles.colors.black}
+                        placeholderTextColor={Colors.black}
                         autoCompleteType="email"
                         blurOnSubmit={true}
                         importantForAutofill="yes"
@@ -93,10 +98,10 @@ export class Login extends ValidationComponent {
                     {this.emailError ? <AuthWarning error={this.emailError} /> : null}
                     <TextInput
                         value={this.state.password}
-                        onChangeText={text => this.onChange(text)}
-                        style={signInStyles.input}
+                        onChangeText={text => this.onChangePassword(text)}
+                        style={ApplicationStyles.screen.input}
                         placeholder={this.defaultPasswordPlaceholder}
-                        placeholderTextColor={BaseStyles.colors.black}
+                        placeholderTextColor={Colors.black}
                         autoCompleteType="password"
                         importantForAutofill="yes"
                         secureTextEntry={true}
@@ -104,25 +109,25 @@ export class Login extends ValidationComponent {
                     />
                     {this.passwordError ? <AuthWarning error={this.passwordError} /> : null}
                     <Button
-                        underlayColor={BaseStyles.colors.LinkHighlighUnderlay}
+                        underlayColor={Colors.LinkHighlighUnderlay}
                         hitSlop={BaseStyles.buttonHitSlop}
                         style={signInStyles.restorePassword}
                         text='Forgot Password?'
-                        textStyle={signInStyles.link} />
+                        textStyle={ApplicationStyles.screen.link} />
                     <Button
                         style={signInStyles.signInButton}
-                        underlayColor={BaseStyles.colors.lightBlue}
+                        underlayColor={Colors.lightBlue}
                         hitSlop={BaseStyles.buttonHitSlop}
                         onPress={this.onSignIn}
                         text='Sign in'
                         textStyle={signInStyles.signInText} />
                     <Button
-                        underlayColor={BaseStyles.colors.LinkHighlighUnderlay}
+                        underlayColor={Colors.LinkHighlighUnderlay}
                         hitSlop={BaseStyles.buttonHitSlop}
                         style={signInStyles.signUp}
                         onPress={this.onSignUp}
                         text='New Here? Sign Up?'
-                        textStyle={signInStyles.link} />
+                        textStyle={ApplicationStyles.screen.link} />
                 </KeyboardAvoidingView>
             </LinearGradient>
         );

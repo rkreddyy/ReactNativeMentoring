@@ -8,6 +8,7 @@ import { signUpStyles, BackgroundGradientColors } from './style';
 import Button from '../../components/Button';
 import Text from '../../components/Text';
 import { AuthWarning } from './AuthWarning';
+import { ApplicationStyles, Colors } from '../../themes';
 import { AUTH_ROUTES } from "../../constants/routes";
 
 export class Register extends ValidationComponent {
@@ -92,7 +93,7 @@ export class Register extends ValidationComponent {
     clearForm() {
         this.emailError = '';
         this.passwordError = '';
-        this.setState({ email: '', password: '' });
+        this.setState({ email: '', password: '', passwordConfirm: '' });
     }
 
     goToSignIn = () => {
@@ -101,26 +102,15 @@ export class Register extends ValidationComponent {
 
     render() {
         return (
-            <LinearGradient colors={BackgroundGradientColors} style={signUpStyles.container}>
-                <KeyboardAvoidingView behavior="position" style={signUpStyles.container}>
-                    <Button
-                        style={signUpStyles.backIcon}
-                        underlayColor={BaseStyles.colors.LinkHighlighUnderlay}
-                        hitSlop={BaseStyles.buttonHitSlop}
-                        onPress={() => this.goToSignIn()}>
-                        <Icon
-                            icon="faArrowLeft"
-                            size={BaseStyles.fontSize.regular}
-                            color={BaseStyles.colors.black}
-                        />
-                    </Button>
-                    <Text style={signUpStyles.title}>Ecommerce Store</Text>
+            <LinearGradient colors={BackgroundGradientColors} style={ApplicationStyles.screen.container}>
+                <KeyboardAvoidingView behavior="position" style={ApplicationStyles.screen.container}>
+                    <Text style={ApplicationStyles.screen.mainTitle}>Ecommerce Store</Text>
                     <TextInput
                         value={this.state.fullName}
                         onChangeText={fullName => this.setState({ fullName })}
-                        style={signUpStyles.input}
+                        style={ApplicationStyles.screen.input}
                         placeholder={this.defaultNamePlaceholder}
-                        placeholderTextColor={BaseStyles.colors.black}
+                        placeholderTextColor={Colors.black}
                         autoCompleteType="name"
                         importantForAutofill="yes"
                         keyboardType="default"
@@ -130,9 +120,9 @@ export class Register extends ValidationComponent {
                     <TextInput
                         value={this.state.email}
                         onChangeText={email => this.setState({ email })}
-                        style={signUpStyles.input}
+                        style={ApplicationStyles.screen.input}
                         placeholder={this.defaultEmailPlaceholder}
-                        placeholderTextColor={BaseStyles.colors.black}
+                        placeholderTextColor={Colors.black}
                         autoCompleteType="email"
                         blurOnSubmit={true}
                         importantForAutofill="yes"
@@ -140,44 +130,47 @@ export class Register extends ValidationComponent {
                         textContentType="emailAddress"
                     />
                     {this.emailError ? <AuthWarning error={this.emailError} /> : null}
+
                     <TextInput
                         value={this.state.password}
                         onChangeText={password => this.setState({ password })}
-                        style={signUpStyles.input}
+                        style={ApplicationStyles.screen.input}
                         placeholder={this.defaultPasswordPlaceholder}
-                        placeholderTextColor={BaseStyles.colors.black}
+                        placeholderTextColor={Colors.black}
                         autoCompleteType="password"
                         importantForAutofill="yes"
                         secureTextEntry={true}
                         textContentType="password"
                     />
                     {this.passwordError ? <AuthWarning error={this.passwordError} /> : null}
+
                     <TextInput
                         value={this.state.passwordConfirm}
                         onChangeText={passwordConfirm => this.setState({ passwordConfirm })}
-                        style={signUpStyles.input}
+                        style={ApplicationStyles.screen.input}
                         placeholder={this.defaultPasswordConfirmPlaceholder}
-                        placeholderTextColor={BaseStyles.colors.black}
+                        placeholderTextColor={Colors.black}
                         autoCompleteType="password"
                         importantForAutofill="yes"
                         secureTextEntry={true}
                         textContentType="password"
                     />
                     {this.passwordConfirmError ? <AuthWarning error={this.passwordConfirmError} /> : null}
+                    
                     <Button
                         style={signUpStyles.signInButton}
-                        underlayColor={BaseStyles.colors.lightBlue}
+                        underlayColor={Colors.lightBlue}
                         hitSlop={BaseStyles.buttonHitSlop}
                         onPress={this.onSignUp}
                         text='Register'
                         textStyle={signUpStyles.signInText} />
                     <Button
-                        underlayColor={BaseStyles.colors.LinkHighlighUnderlay}
+                        underlayColor={Colors.LinkHighlighUnderlay}
                         hitSlop={BaseStyles.buttonHitSlop}
                         style={signUpStyles.signIn}
                         onPress={this.goToSignIn}
                         text='Already have account? Sign In?'
-                        textStyle={signUpStyles.link} />
+                        textStyle={ApplicationStyles.screen.link} />
                 </KeyboardAvoidingView>
             </LinearGradient>
         );

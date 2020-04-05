@@ -18,34 +18,10 @@ export const signInStyles = StyleSheet.create({
     container: {
         flex: 1,
     },
-    title: {
-        backgroundColor: 'transparent',
-        fontSize: BaseStyles.fontSize.big,
-        textAlign: 'center',
-        margin: BaseStyles.margin,
-        color: BaseStyles.colors.lightBlue,
-        marginTop: 200,
-    },
-    inputGroup: {
-        flex: 1,
-        alignItems: 'center',
-    },
-    input: {
-        ...BaseStylesSets.containerRightLeftMargins,
-        alignSelf: 'stretch',
-        backgroundColor: 'transparent',
-        borderBottomWidth: 1,
-        color: BaseStyles.colors.black,
-        fontSize: BaseStyles.fontSize.regular,
-        marginTop: 20,
-    },
     restorePassword: {
         ...BaseStylesSets.containerRightLeftMargins,
         alignSelf: 'flex-end',
         marginTop: 20,
-    },
-    link: {
-        ...BaseStylesSets.baseLink,
     },
     signUp: {
         ...BaseStylesSets.containerRightLeftMargins,
@@ -69,34 +45,10 @@ export const signUpStyles = StyleSheet.create({
     container: {
         flex: 1,
     },
-    title: {
-        backgroundColor: 'transparent',
-        fontSize: BaseStyles.fontSize.big,
-        textAlign: 'center',
-        margin: BaseStyles.margin,
-        color: BaseStyles.colors.lightBlue,
-        marginTop: 120,
-    },
-    inputGroup: {
-        flex: 1,
-        alignItems: 'center',
-    },
-    input: {
-        ...BaseStylesSets.containerRightLeftMargins,
-        alignSelf: 'stretch',
-        backgroundColor: 'transparent',
-        borderBottomWidth: 1,
-        color: BaseStyles.colors.black,
-        fontSize: BaseStyles.fontSize.regular,
-        marginTop: 20,
-    },
     restorePassword: {
         ...BaseStylesSets.containerRightLeftMargins,
         alignSelf: 'flex-end',
         marginTop: 20,
-    },
-    link: {
-        ...BaseStylesSets.baseLink,
     },
     signIn: {
         ...BaseStylesSets.containerRightLeftMargins,
