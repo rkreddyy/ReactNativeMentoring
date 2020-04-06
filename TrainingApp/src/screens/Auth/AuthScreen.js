@@ -9,7 +9,6 @@ import {
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { useDispatch } from 'react-redux';
-import AsyncStorage from '@react-native-community/async-storage';
 
 import Input from '../../components/Input';
 import Card from '../../components/Card';
@@ -65,19 +64,6 @@ const AuthScreen = props => {
             Alert.alert('An Error Occurred!', error, [{ text: 'Okay' }]);
         }
     }, [error]);
-
-    useEffect(() => {
-        const tryLogin = async () => {
-            const userData = await AsyncStorage.getItem('userData');
-            if (!userData) {
-                props.navigation.navigate(AUTH_ROUTES.LOGIN);
-                return;
-            }
-            props.navigation.navigate(MAIN_ROUTES.DRAWER);
-        };
-
-        tryLogin();
-    }, [dispatch]);
 
     const authHandler = async () => {
         let action;

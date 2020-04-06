@@ -22,3 +22,7 @@ export const AUTH_ROUTES = {
   REGISTER: 'register'
 }
 
+export const STARTUP_ROUTES = {
+  STARTUP: 'startup'
+}
+
