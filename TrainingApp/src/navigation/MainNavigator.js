@@ -13,7 +13,7 @@ export default React.forwardRef((props, ref) => {
   return (
     <NavigationContainer ref={ref}>
       <Stack.Navigator
-        initialRouteName={MAIN_ROUTES.AUTH}
+        initialRouteName={STARTUP_ROUTES.STARTUP}
       >
         <Stack.Screen name={STARTUP_ROUTES.STARTUP} component={Startup} />
         <Stack.Screen name={AUTH_ROUTES.LOGIN} component={AuthScreen} />
