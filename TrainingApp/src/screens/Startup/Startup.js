@@ -8,6 +8,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 import { Colors } from '../../themes';
 import { MAIN_ROUTES, AUTH_ROUTES } from '../../constants/routes';
+import * as authActions from '../../store/actions/auth';
 import styles from './style';
 
 const StartupScreen = props => {
@@ -21,6 +22,8 @@ const StartupScreen = props => {
                 return;
             }
             props.navigation.navigate(MAIN_ROUTES.DRAWER);
+
+            dispatch(authActions.authenticate(userData.userId, userData.token));
         };
 
         tryLogin();

@@ -1,23 +1,22 @@
 import AsyncStorage from '@react-native-community/async-storage';
-import { LOGIN, SIGNUP, LOGOUT } from './actionTypes';
+import { AUTHENTICATE, LOGOUT } from './actionTypes';
 import { AUTH_URL } from '../../constants/endPoints';
 
-let timer;
+export const authenticate = (userId, token) => {
+  return dispatch => {
+    dispatch({ type: AUTHENTICATE, userId: userId, token: token });
+  };
+};
 
 export const signup = (email, password) => {
   return async dispatch => {
-    const response = await fetch(
-      `${AUTH_URL}/accounts:signUp?key=AIzaSyBY8UJq_xLD0nEe1HZHuvEOUfYIS9gg4pA`,
+    let formData = new FormData();
+    formData.append("email", email);
+    formData.append("password", password);
+    const response = await fetch(`${AUTH_URL}/create`,
       {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          email: email,
-          password: password,
-          returnSecureToken: true
-        })
+        body: formData
       }
     );
 
@@ -32,18 +31,11 @@ export const signup = (email, password) => {
     }
 
     const resData = await response.json();
-    console.log(resData);
     dispatch(
-      authenticate(
-        resData.localId,
-        resData.idToken,
-        parseInt(resData.expiresIn) * 1000
-      )
+      authenticate(resData.loginName, resData.token)
     );
-    const expirationDate = new Date(
-      new Date().getTime() + parseInt(resData.expiresIn) * 1000
-    );
-    saveDataToStorage(resData.idToken, resData.localId, expirationDate);
+
+    saveDataToStorage(loginName, resData.token);
   };
 };
 
@@ -64,8 +56,9 @@ export const login = (loginName, password) => {
     }
 
     const resData = await response.json();
-    dispatch({ type: LOGIN, userId: loginName, token: resData.token });
-
+    dispatch(
+      authenticate(resData.loginName, resData.token)
+    );
     saveDataToStorage(loginName, resData.token);
   };
 };
