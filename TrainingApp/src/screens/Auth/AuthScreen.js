@@ -69,8 +69,15 @@ const AuthScreen = props => {
         let action;
         if (isSignup) {
             action = authActions.signup(
+                formState.inputValues.username,
                 formState.inputValues.email,
-                formState.inputValues.password
+                formState.inputValues.password,
+                formState.inpputValues.confirmPassword,
+                formState.inpputValues.firstName,
+                formState.inpputValues.lastName,
+                formState.inpputValues.address1,
+                formState.inpputValues.city,
+                formState.inpputValues.postalCode,
             );
         } else {
             action = authActions.login(
@@ -183,6 +190,78 @@ const AuthScreen = props => {
                                     onInputChange={inputChangeHandler}
                                     initialValue=""
                                 />
+                                {/* <Input
+                                    id="telephone"
+                                    label="Telephone"
+                                    keyboardType="phone-pad"
+                                    secureTextEntry
+                                    required
+                                    minLength={5}
+                                    autoCapitalize="none"
+                                    errorText="Please enter a valid telephone number."
+                                    onInputChange={inputChangeHandler}
+                                    initialValue=""
+                                /> */}
+                                <Input
+                                    id="address1"
+                                    label="Address Line 1"
+                                    keyboardType="default"
+                                    secureTextEntry
+                                    required
+                                    minLength={5}
+                                    autoCapitalize="none"
+                                    errorText="Please enter valid address line 1."
+                                    onInputChange={inputChangeHandler}
+                                    initialValue=""
+                                />
+                                <Input
+                                    id="city"
+                                    label="City"
+                                    keyboardType="default"
+                                    secureTextEntry
+                                    required
+                                    minLength={5}
+                                    autoCapitalize="none"
+                                    errorText="Please enter valid city name."
+                                    onInputChange={inputChangeHandler}
+                                    initialValue=""
+                                />
+                                <Input
+                                    id="postalCode"
+                                    label="Postal Code"
+                                    keyboardType="default"
+                                    secureTextEntry
+                                    required
+                                    minLength={6}
+                                    autoCapitalize="none"
+                                    errorText="Please enter valid postal code."
+                                    onInputChange={inputChangeHandler}
+                                    initialValue=""
+                                />
+                                {/* <Input
+                                    id="country"
+                                    label="Country"
+                                    keyboardType="default"
+                                    secureTextEntry
+                                    required
+                                    minLength={5}
+                                    autoCapitalize="none"
+                                    errorText="Please choose a country."
+                                    onInputChange={inputChangeHandler}
+                                    initialValue=""
+                                />
+                                <Input
+                                    id="zone"
+                                    label="Zone"
+                                    keyboardType="default"
+                                    secureTextEntry
+                                    required
+                                    minLength={5}
+                                    autoCapitalize="none"
+                                    errorText="Please choose a Zone."
+                                    onInputChange={inputChangeHandler}
+                                    initialValue=""
+                                /> */}
 
                             </>
                         }
