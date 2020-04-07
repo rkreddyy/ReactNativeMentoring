@@ -10,6 +10,7 @@ export const DRAWER_ROUTES = {
 
 export const SHOP_ROUTES = {
   PRODUCTS: 'products',
+  SHOP: 'shop',
 }
 
 export const HOME_ROUTES = {

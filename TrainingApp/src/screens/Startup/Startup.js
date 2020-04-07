@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import AsyncStorage from '@react-native-community/async-storage';
 
 import { Colors } from '../../themes';
-import { MAIN_ROUTES, AUTH_ROUTES } from '../../constants/routes';
+import { SHOP_ROUTES, AUTH_ROUTES } from '../../constants/routes';
 import * as authActions from '../../store/actions/auth';
 import styles from './style';
 
@@ -21,7 +21,7 @@ const StartupScreen = props => {
                 props.navigation.navigate(AUTH_ROUTES.AUTH);
                 return;
             }
-            props.navigation.navigate(MAIN_ROUTES.DRAWER);
+            props.navigation.navigate(SHOP_ROUTES.SHOP);
 
             dispatch(authActions.authenticate(userData.userId, userData.token));
         };

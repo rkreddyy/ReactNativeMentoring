@@ -10,8 +10,8 @@ import Group from './Group';
 import ProductList from './ProductsList';
 
 export default class Shop extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.groups = [
             {
                 id: 'dsfvdsfvdsfv',
@@ -46,13 +46,12 @@ export default class Shop extends Component {
             },
             { id: 'efvedvevewvr', name: 'Cloth', source: require('../../images/cloth.jpg') },
             { id: 'sdfdscdscvdsfvsdfvsdf', name: 'Furniture', source: require('../../images/furniture.jpg') },
-            { id: 'easdcsdcfvedvevewvr', name: 'Electronics', source: require('../../images/electronics1.jpg') },
-            { id: 'efvedveveasdcsadcwvr', name: 'Cloth', source: require('../../images/cloth.jpg') },
-            { id: 'efveevervdvevewvr', name: 'Furniture', source: require('../../images/furniture.jpg') },
         ];
         this.currentGroup = this.groups[0];
     }
-    openMenu() {}
+    openMenu() {
+        this.props.navigation.openDrawer();
+    }
 
     openWishList() {}
 

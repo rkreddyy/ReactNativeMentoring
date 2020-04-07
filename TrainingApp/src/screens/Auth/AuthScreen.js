@@ -15,7 +15,7 @@ import Card from '../../components/Card';
 import { Colors } from '../../themes';
 import styles, { BackgroundGradientColors } from './style';
 import * as authActions from '../../store/actions/auth';
-import { MAIN_ROUTES } from '../../constants/routes';
+import { MAIN_ROUTES, SHOP_ROUTES } from '../../constants/routes';
 import { FORM_INPUT_UPDATE } from '../../store/actions/actionTypes';
 
 const formReducer = (state, action) => {
@@ -89,7 +89,7 @@ const AuthScreen = props => {
         setIsLoading(true);
         try {
             await dispatch(action);
-            props.navigation.navigate(MAIN_ROUTES.DRAWER);
+            props.navigation.navigate(SHOP_ROUTES.SHOP);
         } catch (err) {
             setError(err.message);
             setIsLoading(false);
