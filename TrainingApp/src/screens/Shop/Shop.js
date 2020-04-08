@@ -6,8 +6,8 @@ import { faBars, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import Styles from './styles';
 import { BaseStyles } from '../../app.styles';
 import Search from '../Search';
-import Group from './Group';
-import ProductList from './ProductsList';
+import Group from '../Group';
+import ProductList from '../Products';
 import shopData from '../../mock/shop-data'
 
 const Shop = props => {
@@ -33,7 +33,7 @@ const Shop = props => {
 
     return (
         <View style={Styles.main.wrapper}>
-            <View style={Styles.main.header}>
+            {/* <View style={Styles.main.header}>
                 <TouchableHighlight
                     style={Styles.main.menuButton}
                     underlayColor={BaseStyles.colors.LinkHighlighUnderlay}
@@ -53,7 +53,7 @@ const Shop = props => {
                         color={BaseStyles.colors.white}
                     />
                 </TouchableHighlight>
-            </View>
+            </View> */}
             <View style={Styles.main.search}>
                 <Search />
             </View>

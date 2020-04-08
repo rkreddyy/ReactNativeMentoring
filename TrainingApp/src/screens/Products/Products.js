@@ -5,7 +5,7 @@ import Styles from './styles';
 import { BaseStyles } from '../../app.styles';
 import Product from '../Product';
 
-const ProductList = props => {
+const Products = props => {
     viewAllGroupItems = () => { }
 
     getGroupHeaderJSX = () => {
@@ -35,4 +35,4 @@ const ProductList = props => {
     );
 }
 
-export default ProductList;
+export default Products;
