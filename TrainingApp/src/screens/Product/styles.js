@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 
-import {BaseStyles} from '../../../app.styles';
+import {BaseStyles} from '../../app.styles';
 
 const ProductStyles = StyleSheet.create({
     wrapper: {

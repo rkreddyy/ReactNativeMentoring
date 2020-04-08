@@ -15,32 +15,36 @@ export default React.forwardRef((props, ref) => {
     <NavigationContainer ref={ref}>
       <Stack.Navigator
         initialRouteName={STARTUP_ROUTES.STARTUP}
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: '#00a8f3',
+          },
+          headerTintColor: '#ffffff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }}
       >
         <Stack.Screen
           name={STARTUP_ROUTES.STARTUP}
-          component={Startup}
-          options={{ headerShown: false }} />
+          component={Startup} />
 
         <Stack.Screen
           name={AUTH_ROUTES.AUTH}
-          component={AuthScreen}
-          options={{ headerShown: false }} />
+          component={AuthScreen} />
 
         <Stack.Screen
           name={MAIN_ROUTES.DRAWER}
-          component={DrawerNavigator}
-          options={{ headerShown: false }}
-        />
+          component={DrawerNavigator} />
 
         <Stack.Screen
           name={MAIN_ROUTES.PRODUCT}
-          component={Product}
-          options={{ headerShown: false }} />
+          component={Product} />
 
         <Stack.Screen
           name={SHOP_ROUTES.SHOP}
-          component={Shop}
-          options={{ headerShown: false }} />
+          component={Shop} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );

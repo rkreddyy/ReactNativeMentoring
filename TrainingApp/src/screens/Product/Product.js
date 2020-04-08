@@ -1,43 +1,34 @@
-import React, { useState } from "react";
-import { ScrollView } from "react-native";
-import Text from "../../components/Text";
-import ProductImage from "../../components/ProductImage";
-import Button from "../../components/Button";
-import style from "./style";
+import React from 'react';
+import { View, Image, Text } from 'react-native';
 
-const Product = React.memo(props => {
-  const [loading, setLoading] = useState(false);
-  const { product } = props.route.params;
-  const { navigation } = props;
-  navigation.setOptions({
-    title: product.name
-  });
+import Styles from './styles';
 
-  const onPress = async () => {
-    setLoading(true);
+const Product = props => {
+    getPriceString = (item) => {
+        return `$${item.price}`;
+    }
 
-    // Wait 5 seconds
-    await new Promise(res => {
-      setTimeout(res, 5000);
-    });
+    getOldPriceString = (item) => {
+        return `$${item.oldPrice}`;
+    }
 
-    setLoading(false);
-    navigation.goBack();
-  };
+    getDiscountString = (item) => {
+        return `${item.discount}% Off`;
+    }
 
-  return (
-    <React.Fragment>
-      <ScrollView
-        style={style.container}
-        contentContainerStyle={style.contentContainer}
-      >
-        <ProductImage product={product} />
-        <Text.TITLE style={style.title}>{product.name}</Text.TITLE>
-        <Text>{product.description}</Text>
-      </ScrollView>
-      <Button loading={loading} onPress={onPress} title="Add to cart" />
-    </React.Fragment>
-  );
-});
+    return (
+        <View style={Styles.wrapper}>
+            <View style={Styles.imageWrapper}>
+                <Image source={props.item.source} style={Styles.image} />
+            </View>
+            <Text>{props.item.name}</Text>
+            <View style={Styles.priceWrapper}>
+                <Text style={Styles.price}>{getPriceString(props.item)}</Text>
+                <Text style={Styles.oldPrice}>{getOldPriceString(props.item)}</Text>
+                <Text style={Styles.discount}>{getDiscountString(props.item)}</Text>
+            </View>
+        </View>
+    );
+}
 
 export default Product;

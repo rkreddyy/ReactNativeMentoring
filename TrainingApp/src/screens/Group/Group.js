@@ -1,20 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { TouchableHighlight, View, Text, Image } from 'react-native';
 
 import { GroupStyles } from './styles';
-import { BaseStyles } from '../../../app.styles';
+import { BaseStyles } from '../../app.styles';
 
-export default class Group extends Component {
-    render() {
+const Group = props => {
         return (
             <TouchableHighlight hitSlop={BaseStyles.buttonHitSlop}>
                 <View style={GroupStyles.group}>
                     <View style={GroupStyles.groupImageWrapper}>
-                        <Image source={this.props.group.source} style={GroupStyles.groupImage} />
+                        <Image source={props.group.source} style={GroupStyles.groupImage} />
                     </View>
-                    <Text style={BaseStyles.groupName}>{this.props.group.name}</Text>
+                    <Text style={BaseStyles.groupName}>{props.group.name}</Text>
                 </View>
             </TouchableHighlight>
         );
-    }
 }
+
+export default Group;
