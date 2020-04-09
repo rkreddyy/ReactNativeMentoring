@@ -1,28 +1,14 @@
-export const MAIN_ROUTES = {
-  DRAWER: 'drawer',
-  PRODUCT: 'product'
-}
-
-export const DRAWER_ROUTES = {
+export const ROUTES = {
   HOME: 'home',
-  SETTINGS: 'settings'
-}
-
-export const SHOP_ROUTES = {
-  PRODUCTS: 'products',
-  SHOP: 'shop',
-}
-
-export const HOME_ROUTES = {
-  SHOP: 'shop',
+  PROFILE: 'profile',
+  WISHLIST: 'wishlist',
   CART: 'cart',
+  ORDERS: 'orders',
+  SETTINGS: 'settings',
+  DRAWER: 'drawer',
+  PRODUCT: 'product',
+  SHOP: 'shop',
+  AUTH: 'auth',
+  STARTUP: 'startup',
+  // PRODUCT: 'product',
 }
-
-export const AUTH_ROUTES = {
-  AUTH: 'auth'
-}
-
-export const STARTUP_ROUTES = {
-  STARTUP: 'startup'
-}
-

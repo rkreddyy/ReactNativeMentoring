@@ -33,27 +33,6 @@ const Shop = props => {
 
     return (
         <View style={Styles.main.wrapper}>
-            {/* <View style={Styles.main.header}>
-                <TouchableHighlight
-                    style={Styles.main.menuButton}
-                    underlayColor={BaseStyles.colors.LinkHighlighUnderlay}
-                    hitSlop={BaseStyles.buttonHitSlop}
-                    onPress={() => openMenu()}>
-                    <FontAwesomeIcon icon={faBars} size={BaseStyles.fontSize.l} color={BaseStyles.colors.white} />
-                </TouchableHighlight>
-                <Text style={Styles.main.title}>Ecommerce Store</Text>
-                <TouchableHighlight
-                    style={Styles.main.menuButton}
-                    hitSlop={BaseStyles.buttonHitSlop}
-                    underlayColor={BaseStyles.colors.LinkHighlighUnderlay}
-                    onPress={() => openWishList()}>
-                    <FontAwesomeIcon
-                        icon={faShoppingCart}
-                        size={BaseStyles.fontSize.l}
-                        color={BaseStyles.colors.white}
-                    />
-                </TouchableHighlight>
-            </View> */}
             <View style={Styles.main.search}>
                 <Search />
             </View>
