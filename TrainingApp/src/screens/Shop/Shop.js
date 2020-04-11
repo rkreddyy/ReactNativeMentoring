@@ -32,24 +32,7 @@ const Shop = props => {
     const onItemPress = item => {
         props.navigation.navigate(ROUTES.PRODUCT, { product: item });
     };
-
-    // return (
-    //     <View style={Styles.main.wrapper}>
-    //         <View style={Styles.main.search}>
-    //             <Search />
-    //         </View>
-    //         <View style={Styles.main.groupsScrollable}>
-    //             <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-    //                 <View style={Styles.main.groups}>{getGroupsJSX()}</View>
-    //             </ScrollView>
-    //         </View>
-    //         <View style={Styles.main.divider} />
-    //         <View style={Styles.main.items}>
-    //             <ProductList currentGroup={currentGroup} />
-    //         </View>
-    //     </View>
-    // );
-
+    
     return (
         <View style={Styles.main.wrapper}>
             <View style={Styles.main.search}>

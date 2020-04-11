@@ -28,18 +28,6 @@ const Product = props => {
     };
 
     return (
-        // <View style={Styles.wrapper}>
-        //     <View style={Styles.imageWrapper}>
-        //         <Image source={props.item.source} style={Styles.image} />
-        //     </View>
-        //     <Text>{props.item.name}</Text>
-        //     <View style={Styles.priceWrapper}>
-        //         <Text style={Styles.price}>{getPriceString(props.item)}</Text>
-        //         <Text style={Styles.oldPrice}>{getOldPriceString(props.item)}</Text>
-        //         <Text style={Styles.discount}>{getDiscountString(props.item)}</Text>
-        //     </View>
-        // </View>
-
         <>
             <ScrollView
                 style={Styles.container}
