@@ -47,4 +47,21 @@ export const BaseStylesSets = {
         justifyContent: 'space-between',
         alignItems: 'center',
     },
+    priceWrapper: {
+        flexDirection: 'row',
+        alignSelf: 'center',
+    },
+    price: {
+        fontWeight: 'bold',
+    },
+    oldPrice: {
+        marginLeft: BaseStyles.margin.xs,
+        fontWeight: 'bold',
+        textDecorationLine: 'line-through',
+    },
+    discount: {
+        marginLeft: BaseStyles.margin.xs,
+        color: BaseStyles.colors.blue,
+        fontWeight: 'bold',
+    },
 };

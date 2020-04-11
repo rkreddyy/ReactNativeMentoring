@@ -1,8 +1,23 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
-import {BaseStyles} from '../../app.styles';
+import { BaseStyles } from '../../app.styles';
 
 const ProductStyles = StyleSheet.create({
+    container: {
+        flex: 1,
+    },
+
+    contentContainer: {
+        padding: 16,
+    },
+
+    image: {
+        alignSelf: 'center',
+    },
+
+    title: {
+        paddingVertical: 8,
+    },
     wrapper: {
         marginRight: 'auto',
         flexBasis: 190,
@@ -21,12 +36,13 @@ const ProductStyles = StyleSheet.create({
         overflow: 'hidden',
         marginTop: BaseStyles.margin.s,
     },
-    image: {
-        height: 90,
-        width: 40,
-    },
+    // image: {
+    //     height: 90,
+    //     width: 40,
+    // },
     priceWrapper: {
         flexDirection: 'row',
+        alignSelf: 'center',
     },
     price: {
         fontWeight: 'bold',
