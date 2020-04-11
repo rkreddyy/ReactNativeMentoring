@@ -3,8 +3,8 @@ import { View, FlatList, ScrollView } from 'react-native';
 
 import Styles from './styles';
 import { BaseStyles } from '../../app.styles';
-import Search from '../Search';
-import Group from '../Group';
+import Search from './Search';
+import Group from './Group';
 import shopData from '../../mock/shop-data'
 import ProductGridItem from '../../components/ProductGridItem';
 import { ROUTES } from '../../constants/routes';

@@ -2,8 +2,8 @@ import React from 'react';
 import { View, Text, TouchableHighlight } from 'react-native';
 
 import Styles from './styles';
-import { BaseStyles } from '../../app.styles';
-import Product from '../Product';
+import { BaseStyles } from '../../../app.styles';
+import Product from '../../Product';
 
 const Products = props => {
     viewAllGroupItems = () => { }

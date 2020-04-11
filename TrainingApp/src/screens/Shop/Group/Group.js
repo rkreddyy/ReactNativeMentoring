@@ -2,7 +2,7 @@ import React from 'react';
 import { TouchableHighlight, View, Text, Image } from 'react-native';
 
 import { GroupStyles } from './styles';
-import { BaseStyles } from '../../app.styles';
+import { BaseStyles } from '../../../app.styles';
 
 const Group = props => {
         return (

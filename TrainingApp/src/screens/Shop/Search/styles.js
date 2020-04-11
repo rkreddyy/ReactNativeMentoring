@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { BaseStyles } from '../../app.styles';
+import { BaseStyles } from '../../../app.styles';
 
 export const SearchStyles = StyleSheet.create({
     wrapper: {
