@@ -45,8 +45,14 @@ export default ({ navigation }) => {
           </TouchableHighlight>),
       }}
     >
-      <Stack.Screen name={ROUTES.STARTUP} component={Startup} />
-      <Stack.Screen name={ROUTES.AUTH} component={AuthScreen} />
+      <Stack.Screen
+        name={ROUTES.STARTUP}
+        component={Startup}
+        options={{ headerShown: false }} />
+      <Stack.Screen
+        name={ROUTES.AUTH}
+        component={AuthScreen}
+        options={{ headerShown: false }} />
       <Stack.Screen name={ROUTES.SHOP} component={Shop} />
       <Stack.Screen name={ROUTES.PRODUCT} component={Product} />
       <Stack.Screen name={ROUTES.CART} component={Cart} />
