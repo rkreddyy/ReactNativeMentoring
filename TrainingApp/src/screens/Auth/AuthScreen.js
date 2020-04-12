@@ -262,8 +262,4 @@ const AuthScreen = props => {
     );
 };
 
-AuthScreen.navigationOptions = {
-    headerTitle: 'Authenticate'
-};
-
 export default AuthScreen;

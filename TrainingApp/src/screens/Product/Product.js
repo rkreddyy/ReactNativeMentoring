@@ -40,8 +40,8 @@ const Product = props => {
                 </View>
                 <Text.TITLE style={Styles.title}>{product.name}</Text.TITLE>
                 <Text>{product.description}</Text>
+                <Button loading={loading} onPress={onPress} text="Add to cart" />
             </ScrollView>
-            <Button loading={loading} onPress={onPress} title="Add to cart" />
         </>
     );
 }
