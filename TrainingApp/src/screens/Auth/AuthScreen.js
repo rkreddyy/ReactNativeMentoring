@@ -5,7 +5,9 @@ import {
     KeyboardAvoidingView,
     Button,
     ActivityIndicator,
-    Alert
+    Alert,
+    Text,
+    Platform
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { useDispatch } from 'react-redux';
@@ -72,12 +74,12 @@ const AuthScreen = props => {
                 formState.inputValues.username,
                 formState.inputValues.email,
                 formState.inputValues.password,
-                formState.inpputValues.confirmPassword,
-                formState.inpputValues.firstName,
-                formState.inpputValues.lastName,
-                formState.inpputValues.address1,
-                formState.inpputValues.city,
-                formState.inpputValues.postalCode,
+                formState.inputValues.confirmPassword,
+                formState.inputValues.firstName,
+                formState.inputValues.lastName,
+                formState.inputValues.address1,
+                formState.inputValues.city,
+                formState.inputValues.postalCode,
             );
         } else {
             action = authActions.login(
@@ -89,7 +91,17 @@ const AuthScreen = props => {
         setIsLoading(true);
         try {
             await dispatch(action);
-            props.navigation.navigate(ROUTES.SHOP);
+            if (isSignup) {
+                Alert.alert(
+                    'Registration Success!',
+                    'User registration successful! Go to login.',
+                    [{ 
+                        text: 'Okay',
+                        onPress: () => props.navigation.navigate(ROUTES.AUTH) 
+                     }]);
+            } else {
+                props.navigation.navigate(ROUTES.SHOP);
+            }
         } catch (err) {
             setError(err.message);
         }
@@ -110,7 +122,7 @@ const AuthScreen = props => {
 
     return (
         <KeyboardAvoidingView
-            behavior="padding"
+            behavior={Platform.Os == "ios" ? "padding" : "height"}
             keyboardVerticalOffset={50}
             style={styles.screen}
         >
@@ -179,7 +191,7 @@ const AuthScreen = props => {
                             isSignup &&
                             <>
                                 <Input
-                                    id="passwordConfirm"
+                                    id="confirmPassword"
                                     label="Confirm Password"
                                     keyboardType="default"
                                     secureTextEntry
@@ -190,23 +202,10 @@ const AuthScreen = props => {
                                     onInputChange={inputChangeHandler}
                                     initialValue=""
                                 />
-                                {/* <Input
-                                    id="telephone"
-                                    label="Telephone"
-                                    keyboardType="phone-pad"
-                                    secureTextEntry
-                                    required
-                                    minLength={5}
-                                    autoCapitalize="none"
-                                    errorText="Please enter a valid telephone number."
-                                    onInputChange={inputChangeHandler}
-                                    initialValue=""
-                                /> */}
                                 <Input
                                     id="address1"
                                     label="Address Line 1"
                                     keyboardType="default"
-                                    secureTextEntry
                                     required
                                     minLength={5}
                                     autoCapitalize="none"
@@ -218,7 +217,6 @@ const AuthScreen = props => {
                                     id="city"
                                     label="City"
                                     keyboardType="default"
-                                    secureTextEntry
                                     required
                                     minLength={5}
                                     autoCapitalize="none"
@@ -230,7 +228,6 @@ const AuthScreen = props => {
                                     id="postalCode"
                                     label="Postal Code"
                                     keyboardType="default"
-                                    secureTextEntry
                                     required
                                     minLength={6}
                                     autoCapitalize="none"
@@ -238,31 +235,6 @@ const AuthScreen = props => {
                                     onInputChange={inputChangeHandler}
                                     initialValue=""
                                 />
-                                {/* <Input
-                                    id="country"
-                                    label="Country"
-                                    keyboardType="default"
-                                    secureTextEntry
-                                    required
-                                    minLength={5}
-                                    autoCapitalize="none"
-                                    errorText="Please choose a country."
-                                    onInputChange={inputChangeHandler}
-                                    initialValue=""
-                                />
-                                <Input
-                                    id="zone"
-                                    label="Zone"
-                                    keyboardType="default"
-                                    secureTextEntry
-                                    required
-                                    minLength={5}
-                                    autoCapitalize="none"
-                                    errorText="Please choose a Zone."
-                                    onInputChange={inputChangeHandler}
-                                    initialValue=""
-                                /> */}
-
                             </>
                         }
                         <View style={styles.buttonContainer}>
@@ -277,13 +249,11 @@ const AuthScreen = props => {
                                 )}
                         </View>
                         <View style={styles.buttonContainer}>
-                            <Button
-                                title={`Switch to ${isSignup ? 'Login' : 'Sign Up'}`}
-                                color={Colors.button}
-                                onPress={() => {
-                                    setIsSignup(prevState => !prevState);
-                                }}
-                            />
+                            <Text
+                                style={styles.linkHighlight}
+                                onPress={() => { setIsSignup(prevState => !prevState) }}>
+                                {isSignup ? 'Already have account? Sign In' : 'New Here? Sign Up?'}
+                            </Text>
                         </View>
                     </ScrollView>
                 </Card>

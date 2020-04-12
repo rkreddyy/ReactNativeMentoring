@@ -1,4 +1,6 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
+
+import {BaseStylesSets} from '../../app.styles'
 
 export default StyleSheet.create({
     screen: {
@@ -17,7 +19,13 @@ export default StyleSheet.create({
     },
     buttonContainer: {
         marginTop: 10
-    }
+    },
+    linkHighlight: {
+        ...BaseStylesSets.baseLink,
+        ...BaseStylesSets.linkHighlighUnderlay,
+        ...BaseStylesSets.containerRightLeftMargins,
+        alignSelf: 'center',
+    },
 });
 
 export const BackgroundGradientColors = ['#c4ddea', '#bdbad5', '#ebcdd6', '#f1dabe'];
