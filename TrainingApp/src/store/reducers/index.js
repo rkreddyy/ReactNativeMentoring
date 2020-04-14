@@ -1,12 +1,11 @@
-import { combineReducers } from 'redux';
-import productsReducer from './products';
-import cartReducer from './cart';
-import ordersReducer from './orders';
-import authReducer from './auth';
+import { combineReducers } from '@reduxjs/toolkit';
 
-export default combineReducers({
-    products: productsReducer,
-    cart: cartReducer,
-    orders: ordersReducer,
-    auth: authReducer
+import headerReducer from './header';
+import authReducer from './authSlice';
+
+const rootReducer = combineReducers({
+    header: headerReducer,
+    auth: authReducer,
 });
+
+export default rootReducer;

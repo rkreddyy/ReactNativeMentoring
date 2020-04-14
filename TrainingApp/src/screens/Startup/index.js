@@ -1,3 +1,3 @@
-import Component from './Startup'
+import Component from './startup'
 
 export default Component

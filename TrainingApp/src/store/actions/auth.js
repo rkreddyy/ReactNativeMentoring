@@ -1,81 +1,49 @@
-import AsyncStorage from '@react-native-community/async-storage';
-import { AUTHENTICATE, LOGOUT } from './actionTypes';
-import { AUTH_URL } from '../../constants/endPoints';
+import { AUTH_URL } from '../../constants/endPoints'
 
-export const authenticate = (userId, token) => {
-  return dispatch => {
-    dispatch({ type: AUTHENTICATE, userId: userId, token: token });
-  };
-};
-
-export const signup = (loginName, email, password, firstName, lastName, address1, city, postalCode) => {
-  return async dispatch => {
-    let formData = new FormData();
-    formData.append("email", email);
-    formData.append("password", password);
-    formData.append("confirm", password);
-    formData.append("loginname", loginName);
-    formData.append("firstname", firstName);
-    formData.append("lastname", lastName);
-    formData.append("address_1", address1);
-    formData.append("city", city);
-    formData.append("postcode", postalCode);
-    formData.append("agree", 1);
-    const response = await fetch(`${AUTH_URL}/create`,
-      {
-        method: 'POST',
-        body: formData
-      }
+export function signIn({ email, userName, password }) {
+    // eslint-disable-next-line no-undef
+    const myHeaders = new Headers();
+    myHeaders.append(
+        'Cookie',
+        'language=en; currency=USD; customer=YmxIdGxtM1ErK0hSYlJVeUs4Y0ZRYVVSeEJFZ2U4NC9QTlRBeEsxYjh1OWpETGtPNUY4VFhFb2R4K0Q5U1lKNnoveW8rNWxmanJKQ3o0SWh4eEIyUkZJcHpXQ0V5ZTl1RHV5cm00UHNkbmlDZTYvdTVkUHQ0Y1IvRVhQVFcvWVJsUUV1c3ZQZWJ5eW5oMkpaZTZMdlJRPT06Ohbyh4PEwZytG8JnpYQvGds%3D',
     );
 
-    if (!response.ok) {
-      throw new Error('Something went wrong!');
+    const formData = new FormData();
+    if (email) {
+        formData.append('email', email);
     }
-
-    const resData = await response.json();
-    // dispatch(
-    //   authenticate(loginName, resData.token)
-    // );
-
-    // saveDataToStorage(loginName, resData.token);
-  };
-};
-
-export const login = (loginName, password) => {
-  return async dispatch => {
-    let formData = new FormData();
-    formData.append("loginname", loginName);
-    formData.append("password", password);
-    const response = await fetch(`${AUTH_URL}/login`,
-      {
-        method: 'POST',
-        body: formData
-      }
-    );
-
-    if (!response.ok) {
-      throw new Error('Invalid username or password!');
+    if (userName) {
+        formData.append('loginname', userName);
     }
+    formData.append('password', password);
 
-    const resData = await response.json();
-    dispatch(
-      authenticate(loginName, resData.token)
-    );
-    saveDataToStorage(loginName, resData.token);
-  };
-};
+    const requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: formData,
+    };
 
-export const logout = () => {
-  AsyncStorage.removeItem('userData');
-  return { type: LOGOUT };
-};
+    return fetch(`${AUTH_URL}/login`, requestOptions).then(response => response.json());
+}
 
-const saveDataToStorage = (loginName, token) => {
-  AsyncStorage.setItem(
-    'userData',
-    JSON.stringify({
-      token: token,
-      userId: loginName
-    })
-  );
-};
+export function signOut(token) {
+    // eslint-disable-next-line no-undef
+    const myHeaders = new Headers();
+    myHeaders.append('Cookie', 'language=en; currency=USD; PHPSESSID=e4185e936502dc70f973659032');
+
+    const formData = new FormData();
+    formData.append('token', token);
+
+    const requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: formData,
+        redirect: 'follow',
+    };
+
+    return fetch(`${AUTH_URL}/logout`, requestOptions).then(response => response.json());
+}
+
+export function restorePassword(email) {
+    return Promise.reject(email);
+}

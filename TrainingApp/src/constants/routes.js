@@ -9,6 +9,10 @@ export const ROUTES = {
   PRODUCT: 'product',
   SHOP: 'shop',
   AUTH: 'auth',
+  SIGNIN: 'signin',
+  SIGNUP: 'signup',
+  RESTORE_PASSWORD: 'restore-password',
   STARTUP: 'startup',
-  // PRODUCT: 'product',
+  MAIN: 'main',
+  PRODUCT_DETAILS: 'product-details'
 }

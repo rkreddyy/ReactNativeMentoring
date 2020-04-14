@@ -12,3 +12,5 @@ export const SET_PRODUCTS = 'SET_PRODUCTS';
 export const INPUT_CHANGE = 'INPUT_CHANGE';
 export const INPUT_BLUR = 'INPUT_BLUR';
 export const FORM_INPUT_UPDATE = 'FORM_INPUT_UPDATE';
+
+export const TOGGLE_SEARCH = 'TOGGLE_SEARCH';

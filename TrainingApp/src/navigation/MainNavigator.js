@@ -3,10 +3,10 @@ import { NavigationContainer } from "@react-navigation/native"
 import {
   createDrawerNavigator,
 } from '@react-navigation/drawer'
-import SettingsScreen from "../screens/Settings"
+import SettingsScreen from "../screens/settings"
 import ShopNavigator from "./ShopNavigator"
-import Cart from '../screens/Cart'
-import Profile from '../screens/Profile'
+import Cart from '../screens/cart'
+import Profile from '../screens/profile'
 import { ROUTES } from "../constants/routes"
 
 const Drawer = createDrawerNavigator();
