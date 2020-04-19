@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { TouchableOpacity, ActivityIndicator } from "react-native";
 import Text from '../Text';
-import { Metrics } from '../../themes'
 
 const Button = ({
   text,
@@ -26,7 +25,7 @@ const Button = ({
 
   return (
     <TouchableOpacity
-      activeOpacity={Metrics.buttons.pressOpacity}
+      activeOpacity={0.7}
       style={style}
       onPress={handlePress}
       disabled={disableButton}

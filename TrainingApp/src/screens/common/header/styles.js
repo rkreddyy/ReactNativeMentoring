@@ -15,16 +15,6 @@ const styles = StyleSheet.create({
         fontSize: BaseStyles.fontSize.m,
         color: BaseStyles.colors.white,
     },
-    menuButton: {
-        display: 'flex',
-        width: BaseStyles.fontSize.l,
-        height: BaseStyles.fontSize.l,
-    },
-    rightIconGroup: {
-        flexBasis: 70,
-        justifyContent: 'space-between',
-        flexDirection: 'row',
-    },
 });
 
 export default styles;

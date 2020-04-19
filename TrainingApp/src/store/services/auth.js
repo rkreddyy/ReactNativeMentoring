@@ -1,5 +1,3 @@
-import { AUTH_URL } from '../../constants/endPoints'
-
 export function signIn({ email, userName, password }) {
     // eslint-disable-next-line no-undef
     const myHeaders = new Headers();
@@ -23,7 +21,7 @@ export function signIn({ email, userName, password }) {
         body: formData,
     };
 
-    return fetch(`${AUTH_URL}/login`, requestOptions).then(response => response.json());
+    return fetch('http://34.73.95.65/index.php?rt=a/account/login', requestOptions).then(response => response.json());
 }
 
 export function signOut(token) {
@@ -41,7 +39,7 @@ export function signOut(token) {
         redirect: 'follow',
     };
 
-    return fetch(`${AUTH_URL}/logout`, requestOptions).then(response => response.json());
+    return fetch('http://34.73.95.65/index.php?rt=a/account/logout', requestOptions).then(response => response.json());
 }
 
 export function restorePassword(email) {

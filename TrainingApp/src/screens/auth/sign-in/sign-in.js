@@ -1,13 +1,21 @@
-import React from 'react';
-import { Text, TextInput, TouchableHighlight, KeyboardAvoidingView, ScrollView } from 'react-native';
+import React, { useEffect } from 'react';
+import {
+    Text,
+    TextInput,
+    TouchableHighlight,
+    KeyboardAvoidingView,
+    ScrollView,
+    Alert,
+    Vibration,
+} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { useDispatch, useSelector } from 'react-redux';
 
 import styles, { BackgroundGradientColors } from './styles';
 import { BaseStyles } from '../../../app.styles';
-import FormWarning from '../form-warning/form-warning';
-import { AuthActions, fetchSignIn } from '../../../store/reducers/authSlice';
-import { ROUTES } from '../../../constants/routes';
+import { AuthActions, fetchSignIn } from '../authSlice';
+import { PATTERN } from '../../../constants/vibration-pattern';
+import { ROUTES } from '../../../navigation/routes';
 
 function onChangeEmailField(dispatch, text) {
     if (text.includes('@')) {
@@ -26,11 +34,16 @@ function restorePassword({ navigation }) {
 }
 
 function requestSignIn(dispatch, { email, userName, password }) {
-    dispatch(fetchSignIn({ email, userName, password }));
+    if ((email || userName) && password) {
+        dispatch(fetchSignIn({ email, userName, password }));
+    } else {
+        Vibration.vibrate(PATTERN.ONE);
+        Alert.alert('An Error Occurred!', "Username and password cannot be empty!", [{ text: 'Ok' }]);
+    }
 }
 
 function goToSignUp(navigation) {
-    navigation.navigate(ROUTES.SIGNUP);
+    navigation.navigate(ROUTES.SIGN_UP);
 }
 
 const SignIn = ({ navigation }) => {
@@ -38,6 +51,13 @@ const SignIn = ({ navigation }) => {
 
     const { email, password, userName } = useSelector(state => state.auth.signInForm);
     const { signInError } = useSelector(state => state.auth);
+
+    useEffect(() => {
+        if (signInError) {
+            Vibration.vibrate(PATTERN.ONE);
+            Alert.alert('An Error Occurred!', signInError, [{ text: 'Ok' }]);
+        }
+    }, [signInError]);
 
     return (
         <ScrollView>
@@ -67,7 +87,6 @@ const SignIn = ({ navigation }) => {
                         secureTextEntry={true}
                         textContentType="password"
                     />
-                    {signInError ? <FormWarning error={signInError} /> : null}
                     <TouchableHighlight
                         underlayColor={BaseStyles.colors.LinkHighlighUnderlay}
                         hitSlop={BaseStyles.buttonHitSlop}

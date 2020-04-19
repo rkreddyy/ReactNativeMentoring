@@ -39,29 +39,4 @@ export const BaseStylesSets = {
         color: BaseStyles.colors.Link,
         fontSize: BaseStyles.fontSize.s,
     },
-    header: {
-        minHeight: 30,
-        padding: BaseStyles.padding.l,
-        backgroundColor: BaseStyles.colors.lightBlue,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-    },
-    priceWrapper: {
-        flexDirection: 'row',
-        alignSelf: 'center',
-    },
-    price: {
-        fontWeight: 'bold',
-    },
-    oldPrice: {
-        marginLeft: BaseStyles.margin.xs,
-        fontWeight: 'bold',
-        textDecorationLine: 'line-through',
-    },
-    discount: {
-        marginLeft: BaseStyles.margin.xs,
-        color: BaseStyles.colors.blue,
-        fontWeight: 'bold',
-    },
 };

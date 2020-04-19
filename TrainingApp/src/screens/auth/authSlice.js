@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { signIn, signOut, restorePassword } from '../actions/auth';
+import { signIn, signOut, restorePassword } from '../../store/services/auth';
 
 const initialState = {
     isSignedIn: false,

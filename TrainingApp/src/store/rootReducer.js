@@ -1,7 +1,7 @@
 import { combineReducers } from '@reduxjs/toolkit';
 
-import headerReducer from './header';
-import authReducer from './authSlice';
+import headerReducer from '../screens/common/header/headerSlice';
+import authReducer from '../screens/auth/authSlice';
 
 const rootReducer = combineReducers({
     header: headerReducer,

@@ -8,7 +8,6 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import styles, { BackgroundGradientColors } from './styles';
 import { BaseStyles } from '../../../app.styles';
 import FormWarning from '../form-warning/form-warning';
-import { ROUTES } from '../../../constants/routes';
 
 class SignUp extends ValidationComponent {
     constructor(props) {
@@ -96,7 +95,7 @@ class SignUp extends ValidationComponent {
     }
 
     goToSignIn() {
-        this.props.navigation.navigate(ROUTES.SIGNIN);
+        this.props.navigation.navigate('SignIn');
     }
 
     goBack() {
