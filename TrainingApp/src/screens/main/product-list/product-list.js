@@ -6,9 +6,8 @@ import { BaseStyles } from '../../../app.styles';
 import Product from '../../common/product/product';
 
 class ProductList extends Component {
-    viewAllGroupItems() {}
 
-    getGroupHeaderJSX() {
+    renderGroupHeaderJSX() {
         return (
             <View style={styles.itemsHeader}>
                 <Text style={styles.itemsHeaderTitle}>{this.props.currentGroup.name}</Text>
@@ -38,7 +37,7 @@ class ProductList extends Component {
     render() {
         return (
             <View style={styles.wrapper}>
-                <View>{this.getGroupHeaderJSX()}</View>
+                <View>{this.renderGroupHeaderJSX()}</View>
                 <View style={styles.productsWrapper}>{this.getProducts()}</View>
             </View>
         );

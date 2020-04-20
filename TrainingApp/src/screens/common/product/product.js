@@ -31,17 +31,17 @@ class Product extends Component {
         return (this.currentImage = image);
     }
 
-    getControlsGSX() {
+    renderControlsJSX() {
         return this.props.isExtended ? (
             <View style={this.styles.controlsWrapper}>
                 {this.props.item.images.map(image => (
-                    <View key={image.id}>{this.getControlGSX(image)}</View>
+                    <View key={image.id}>{this.renderControlJSX(image)}</View>
                 ))}
             </View>
         ) : null;
     }
 
-    getStockButtonGSX() {
+    renderStockButtonJSX() {
         return this.props.isExtended ? (
             <TouchableOpacity
                 onPress={() => {
@@ -54,7 +54,7 @@ class Product extends Component {
         ) : null;
     }
 
-    getControlGSX(image) {
+    renderControlJSX(image) {
         return (
             <TouchableOpacity
                 onPress={() => {
@@ -79,8 +79,8 @@ class Product extends Component {
                 <View style={this.styles.imageWrapper}>
                     <Image source={this.currentImage.source} style={this.styles.image} />
                 </View>
-                {this.getStockButtonGSX()}
-                {this.getControlsGSX()}
+                {this.renderStockButtonJSX()}
+                {this.renderControlsJSX()}
                 <Text style={this.styles.name}>{this.props.item.name}</Text>
                 <View style={this.styles.priceWrapper}>
                     <Text style={this.styles.price}>{this.getPriceString(this.props.item)}</Text>

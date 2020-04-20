@@ -20,10 +20,6 @@ class ProductDetails extends Component {
         return `${item.discount}% Off`;
     }
 
-    addToWishList() {}
-
-    addToCart() {}
-
     goBack() {
         this.props.navigation.goBack();
     }
@@ -48,10 +44,10 @@ class ProductDetails extends Component {
                 <ProductDescription
                     description={this.props.route.params.product.description}
                     wishList={() => {
-                        this.addToWishList();
+                        console.log('wishlist');
                     }}
                     addToCart={() => {
-                        this.addToCart();
+                        console.log('cart');
                     }}
                 />
             </ScrollView>
