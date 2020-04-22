@@ -15,7 +15,7 @@ class ProductList extends Component {
                     style={styles.viewAllButton}
                     hitSlop={BaseStyles.buttonHitSlop}
                     underlayColor={BaseStyles.colors.LinkHighlighUnderlay}
-                    onPress={() => this.viewAllGroupItems()}>
+                    onPress={() => console.log('View all...')}>
                     <Text style={styles.viewAllText}>View all</Text>
                 </TouchableHighlight>
             </View>
