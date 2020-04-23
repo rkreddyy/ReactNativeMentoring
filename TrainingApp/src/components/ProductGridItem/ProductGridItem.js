@@ -3,6 +3,8 @@ import { TouchableOpacity, View, Image } from "react-native";
 import ProductImage from "../ProductImage";
 import Text from "../Text";
 import style from "./style";
+import {BaseStylesSets} from "../../app.styles";
+import {getPriceString, getDiscountString} from "../../utils/formatPrice";
 
 const ProductGridItem = (props) => {
   const { product, onPress } = props;
@@ -11,7 +13,12 @@ const ProductGridItem = (props) => {
     <TouchableOpacity onPress={() => onPress(product)}>
       <View style={style.container}>
         <ProductImage product={product} />
-        <Text style={style.name}>{product.name}</Text>
+        <View style={BaseStylesSets.priceWrapper}>
+          <Text style={BaseStylesSets.price}>{getPriceString(product.price)}</Text>
+          <Text style={BaseStylesSets.oldPrice}>{getPriceString(product.oldPrice)}</Text>
+          <Text style={BaseStylesSets.discount}>{getDiscountString(product.discount)}</Text>
+        </View>
+        <Text.TITLE style={style.name}>{product.name}</Text.TITLE>
       </View>
     </TouchableOpacity>
   );

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, SafeAreaView } from "react-native";
+import { View, SafeAreaView, Button } from "react-native";
 import Text from "../../components/Text";
 import Checkbox from "../../components/Checkbox";
 import style from "./style";
@@ -10,7 +10,7 @@ const CHECKBOXES = [
   "Cache images"
 ];
 
-const Settings = () => {
+const Settings = ({ navigation }) => {
   const [state, setState] = useState({
     checkboxes: {}
   })

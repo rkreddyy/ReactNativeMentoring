@@ -39,12 +39,4 @@ export const BaseStylesSets = {
         color: BaseStyles.colors.Link,
         fontSize: BaseStyles.fontSize.s,
     },
-    header: {
-        minHeight: 30,
-        padding: BaseStyles.padding.l,
-        backgroundColor: BaseStyles.colors.lightBlue,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-    },
 };
