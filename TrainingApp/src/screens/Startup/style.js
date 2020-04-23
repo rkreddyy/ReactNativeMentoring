@@ -19,5 +19,3 @@ export default StyleSheet.create({
         marginTop: 10
     }
 });
-
-export const BackgroundGradientColors = ['#c4ddea', '#bdbad5', '#ebcdd6', '#f1dabe'];

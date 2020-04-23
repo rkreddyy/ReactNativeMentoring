@@ -10,6 +10,7 @@ export const DRAWER_ROUTES = {
 
 export const SHOP_ROUTES = {
   PRODUCTS: 'products',
+  SHOP: 'shop',
 }
 
 export const HOME_ROUTES = {
@@ -18,7 +19,10 @@ export const HOME_ROUTES = {
 }
 
 export const AUTH_ROUTES = {
-  LOGIN: 'login',
-  REGISTER: 'register'
+  AUTH: 'auth'
+}
+
+export const STARTUP_ROUTES = {
+  STARTUP: 'startup'
 }
 

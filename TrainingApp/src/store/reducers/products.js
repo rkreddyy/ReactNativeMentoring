@@ -1,4 +1,5 @@
-import PRODUCTS from '../../data/dummy-data';
+import PRODUCTS from '../../mock/dummy-data';
+
 import {
   DELETE_PRODUCT,
   CREATE_PRODUCT,
