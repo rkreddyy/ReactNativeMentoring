@@ -165,7 +165,7 @@ function CustomDrawerContent({ navigation }) {
 const MainDrawer = () => (
     <Drawer.Navigator initialRouteName={ROUTES.MAIN} drawerContent={CustomDrawerContent}>
         <Drawer.Screen name={ROUTES.MAIN} component={Main} />
-        <Drawer.Screen name={ROUTES.PROFILE} component={Profile} />
+        <Drawer.Screen name={ROUTES.PROFILE} component={Profile} options={{ title: "My Profile" }} />
         <Drawer.Screen name={ROUTES.WISH_LIST} component={Settings} />
         <Drawer.Screen name={ROUTES.MY_CART} component={Cart} />
         <Drawer.Screen name={ROUTES.MY_ORDERS} component={Settings} />

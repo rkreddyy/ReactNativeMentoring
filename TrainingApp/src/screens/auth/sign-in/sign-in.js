@@ -14,7 +14,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import styles, { BackgroundGradientColors } from './styles';
 import { BaseStyles } from '../../../app.styles';
 import { AuthActions, fetchSignIn } from '../authSlice';
-import { PATTERN } from '../../../constants/vibration-pattern';
+import { PATTERN } from '../../../utils/vibration-pattern';
 import { ROUTES } from '../../../navigation/routes';
 
 function onChangeEmailField(dispatch, text) {
