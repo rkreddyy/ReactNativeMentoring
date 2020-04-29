@@ -6,7 +6,7 @@ import ProductList from './product-list/product-list';
 import styles from './styles';
 import Header from '../common/header/header';
 import Divider from '../common/divider/divider';
-import { PRODUCTS } from '../../utils/shop-data';
+import { PRODUCTS } from '../../constants/shop-data';
 import { MAIN_ROUTES } from '../../navigation/routes';
 
 class Main extends Component {
