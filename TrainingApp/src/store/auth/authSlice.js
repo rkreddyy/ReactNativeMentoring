@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import AsyncStorage from '@react-native-community/async-storage';
 
-import { signIn, signOut, restorePassword } from '../../store/services/auth';
+import { signIn, signOut, restorePassword } from './auth-service';
 
 const initialState = {
     isSignedIn: false,

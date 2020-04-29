@@ -13,7 +13,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import styles, { BackgroundGradientColors } from './styles';
 import { BaseStyles } from '../../../app.styles';
-import { AuthActions, fetchSignIn } from '../authSlice';
+import { AuthActions, fetchSignIn } from '../../../store/auth/authSlice';
 import { PATTERN } from '../../../constants/vibration-pattern';
 import { AUTH_ROUTES } from '../../../navigation/routes';
 
