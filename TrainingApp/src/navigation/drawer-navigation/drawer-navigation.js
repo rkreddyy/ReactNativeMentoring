@@ -1,6 +1,7 @@
 import React from 'react';
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
 import { View, Text } from 'react-native';
+import Share from 'react-native-share';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import {
     faUser,
@@ -20,6 +21,7 @@ import Profile from '../../screens/profile';
 import Settings from '../../screens/settings';
 import Cart from '../../screens/cart';
 import Maps from '../../screens/map';
+import { shareOptions } from './config';
 import styles from './styles';
 import { DEFAULT_LOCATION } from '../../constants/default-coordinates';
 import { BaseStyles } from '../../app.styles';
@@ -172,7 +174,7 @@ function CustomDrawerContent({ navigation }) {
                             color={BaseStyles.colors.blue}
                         />
                     )}
-                    onPress={() => navigation.navigate(MAIN_ROUTES.SHARE.name)}
+                    onPress={() => Share.open(shareOptions)}
                 />
             </View>
         </DrawerContentScrollView>
