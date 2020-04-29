@@ -8,6 +8,7 @@ export const MAIN_ROUTES = {
     WISH_LIST: { name: 'WishList', title: 'My Wishlist' },
     MY_CART: { name: 'MyCart', title: 'My Cart' },
     MY_ORDERS: { name: 'MyOrders', title: 'My Orders' },
+    MAPS: { name: 'Maps', label: 'Maps' },
     EMAIL: { name: 'Email' },
     CALL: { name: 'Call' },
     SHARE: { name: 'Share' },

@@ -10,7 +10,8 @@ import {
     faEnvelope,
     faPhoneAlt,
     faShareAlt,
-    faSignOutAlt
+    faSignOutAlt,
+    faMap,
 } from '@fortawesome/free-solid-svg-icons';
 
 import { MAIN_ROUTES } from '../routes';
@@ -18,7 +19,9 @@ import Main from '../../screens/main/main';
 import Profile from '../../screens/profile';
 import Settings from '../../screens/settings';
 import Cart from '../../screens/cart';
+import Maps from '../../screens/map';
 import styles from './styles';
+import { DEFAULT_LOCATION } from '../../constants/default-coordinates';
 import { BaseStyles } from '../../app.styles';
 
 const Drawer = createDrawerNavigator();
@@ -88,6 +91,20 @@ function CustomDrawerContent({ navigation }) {
                         />
                     )}
                     onPress={() => navigation.navigate(MAIN_ROUTES.MY_ORDERS.name)}
+                />
+                <DrawerItem
+                    label={MAIN_ROUTES.MAPS.label}
+                    labelStyle={styles.itemLabel}
+                    style={styles.item}
+                    icon={() => (
+                        <FontAwesomeIcon
+                            style={styles.itemIcon}
+                            icon={faMap}
+                            size={BaseStyles.fontSize.l}
+                            color={BaseStyles.colors.blue}
+                        />
+                    )}
+                    onPress={() => navigation.navigate(MAIN_ROUTES.MAPS.name, { location: DEFAULT_LOCATION })}
                 />
                 <DrawerItem
                     label="Sign Out"
@@ -169,6 +186,11 @@ const MainDrawer = () => (
             name={MAIN_ROUTES.PROFILE.name}
             component={Profile}
             options={{ title: MAIN_ROUTES.PROFILE.title }}
+        />
+        <Drawer.Screen
+            name={MAIN_ROUTES.MAPS.name}
+            component={Maps}
+            options={{ title: MAIN_ROUTES.MAPS.title }}
         />
         <Drawer.Screen name={MAIN_ROUTES.WISH_LIST.name} component={Settings} />
         <Drawer.Screen name={MAIN_ROUTES.MY_CART.name} component={Cart} />
