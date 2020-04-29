@@ -7,7 +7,7 @@ import styles from './styles';
 import Header from '../common/header/header';
 import Divider from '../common/divider/divider';
 import { PRODUCTS } from '../../utils/shop-data';
-import { ROUTES } from '../../navigation/routes';
+import { MAIN_ROUTES } from '../../navigation/routes';
 
 class Main extends Component {
     constructor() {
@@ -27,7 +27,7 @@ class Main extends Component {
     }
 
     gotoProductDetails(product) {
-        this.props.navigation.navigate(ROUTES.PRODUCT_DETAILS, { product: product });
+        this.props.navigation.navigate(MAIN_ROUTES.PRODUCT_DETAILS.name, { product: product });
     }
 
     getTitle() {

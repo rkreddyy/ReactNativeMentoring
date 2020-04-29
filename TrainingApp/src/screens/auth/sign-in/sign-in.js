@@ -15,7 +15,7 @@ import styles, { BackgroundGradientColors } from './styles';
 import { BaseStyles } from '../../../app.styles';
 import { AuthActions, fetchSignIn } from '../authSlice';
 import { PATTERN } from '../../../utils/vibration-pattern';
-import { ROUTES } from '../../../navigation/routes';
+import { AUTH_ROUTES } from '../../../navigation/routes';
 
 function onChangeEmailField(dispatch, text) {
     if (text.includes('@')) {
@@ -30,7 +30,7 @@ function onChangePasswordField(dispatch, password) {
 }
 
 function restorePassword({ navigation }) {
-    navigation.navigate(ROUTES.RESTORE_PASSWORD);
+    navigation.navigate(AUTH_ROUTES.RESTORE_PASSWORD);
 }
 
 function requestSignIn(dispatch, { email, userName, password }) {
@@ -43,7 +43,7 @@ function requestSignIn(dispatch, { email, userName, password }) {
 }
 
 function goToSignUp(navigation) {
-    navigation.navigate(ROUTES.SIGN_UP);
+    navigation.navigate(AUTH_ROUTES.SIGN_UP);
 }
 
 const SignIn = ({ navigation }) => {
