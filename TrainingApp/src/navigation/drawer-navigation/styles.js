@@ -2,7 +2,6 @@ import { StyleSheet } from 'react-native';
 import { BaseStyles } from '../../app.styles';
 
 const styles = StyleSheet.create({
-    wrapper: {},
     header: {
         padding: BaseStyles.margin.l,
         borderBottomWidth: 2,

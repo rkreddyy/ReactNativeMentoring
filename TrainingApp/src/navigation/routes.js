@@ -1,5 +1,7 @@
 export const ROUTES = {
     MAIN: 'Main',
+    APP: 'App',
+    START_UP: 'Startup',
     PRODUCT_DETAILS: 'ProductDetails',
     AUTH: 'Auth',
     PROFILE: 'Profile',

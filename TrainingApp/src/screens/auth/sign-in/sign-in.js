@@ -53,7 +53,7 @@ const SignIn = ({ navigation }) => {
     const { signInError } = useSelector(state => state.auth);
 
     useEffect(() => {
-        if (signInError) {
+        if (signInError && signInError !== 'no_saved_token_found') {
             Vibration.vibrate(PATTERN.ONE);
             Alert.alert('An Error Occurred!', signInError, [{ text: 'Ok' }]);
         }

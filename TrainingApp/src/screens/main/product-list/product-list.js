@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { View, Text, TouchableHighlight } from 'react-native';
 
 import styles from './styles';
@@ -6,6 +7,11 @@ import { BaseStyles } from '../../../app.styles';
 import Product from '../../common/product/product';
 
 class ProductList extends Component {
+
+    static propTypes = {
+        currentGroup: PropTypes.object,
+        gotoProductDetails: PropTypes.func,
+    };
 
     renderGroupHeaderJSX() {
         return (
@@ -15,14 +21,14 @@ class ProductList extends Component {
                     style={styles.viewAllButton}
                     hitSlop={BaseStyles.buttonHitSlop}
                     underlayColor={BaseStyles.colors.LinkHighlighUnderlay}
-                    onPress={() => this.viewAllGroupItems()}>
+                    onPress={() => { }}>
                     <Text style={styles.viewAllText}>View all</Text>
                 </TouchableHighlight>
             </View>
         );
     }
 
-    getProducts() {
+    renderProducts() {
         return this.props.currentGroup.items.map(item => (
             <Product
                 item={item}
@@ -38,7 +44,7 @@ class ProductList extends Component {
         return (
             <View style={styles.wrapper}>
                 <View>{this.renderGroupHeaderJSX()}</View>
-                <View style={styles.productsWrapper}>{this.getProducts()}</View>
+                <View style={styles.productsWrapper}>{this.renderProducts()}</View>
             </View>
         );
     }

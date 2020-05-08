@@ -44,10 +44,10 @@ class ProductDetails extends Component {
                 <ProductDescription
                     description={this.props.route.params.product.description}
                     wishList={() => {
-                        console.log('wishlist');
+                        this.goBack();
                     }}
                     addToCart={() => {
-                        console.log('cart');
+                        this.goBack();
                     }}
                 />
             </ScrollView>

@@ -14,27 +14,26 @@ const Stack = createStackNavigator();
 const AppNavigation = () => {
     const { isSignedIn } = useSelector(state => state.auth);
     return (
-        <NavigationContainer>
-            <Stack.Navigator>
-                {isSignedIn ? (
-                    <>
-                        <Stack.Screen
-                            name={ROUTES.MAIN}
-                            component={Drawer}
-                            options={{
-                                header: () => null,
-                            }}
-                        />
-                        <Stack.Screen
-                            name={ROUTES.PRODUCT_DETAILS}
-                            component={ProductDetails}
-                            options={({ route }) => ({
-                                title: route.params.product.name,
-                                header: () => null,
-                            })}
-                        />
-                    </>
-                ) : (
+        <Stack.Navigator>
+            {isSignedIn ? (
+                <>
+                    <Stack.Screen
+                        name={ROUTES.MAIN}
+                        component={Drawer}
+                        options={{
+                            header: () => null,
+                        }}
+                    />
+                    <Stack.Screen
+                        name={ROUTES.PRODUCT_DETAILS}
+                        component={ProductDetails}
+                        options={({ route }) => ({
+                            title: route.params.product.name,
+                            header: () => null,
+                        })}
+                    />
+                </>
+            ) : (
                     <Stack.Screen
                         name={ROUTES.AUTH}
                         component={AuthNavigation}
@@ -43,8 +42,7 @@ const AppNavigation = () => {
                         }}
                     />
                 )}
-            </Stack.Navigator>
-        </NavigationContainer>
+        </Stack.Navigator>
     );
 };
 

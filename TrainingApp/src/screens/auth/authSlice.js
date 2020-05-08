@@ -1,10 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
+import AsyncStorage from '@react-native-community/async-storage';
 
 import { signIn, signOut, restorePassword } from '../../store/services/auth';
 
 const initialState = {
     isSignedIn: false,
     isLoading: false,
+    isStartScreenLoading: true,
     userToken: undefined,
     signInError: undefined,
     signOutError: undefined,
@@ -34,11 +36,13 @@ const authSlice = createSlice({
             state.isLoading = false;
             state.userToken = action.payload.token;
             state.isSignedIn = true;
+            state.isStartScreenLoading = false;
         },
         getFailedSignIn(state, action) {
             state.isLoading = false;
             state.signInError = action.payload.error;
             state.isSignedIn = false;
+            state.isStartScreenLoading = false;
         },
         signOutRequest(state, action) {
             if (state.isSignedIn) {
@@ -92,6 +96,7 @@ export const fetchSignIn = ({ email, userName, password }) => dispatch => {
         .then(({ status, token, error }) => {
             if (status === 1) {
                 dispatch(AuthActions.getSuccessSignIn({ token }));
+                saveDataToStorage(token);
             } else {
                 dispatch(AuthActions.getFailedSignIn({ error }));
             }
@@ -130,3 +135,7 @@ export const fetchRestorePassword = ({ email }) => dispatch => {
             dispatch(AuthActions.getFailedPasswordRestore({ error }));
         });
 };
+
+const saveDataToStorage = (token) => {
+    AsyncStorage.setItem('userData', JSON.stringify({ token }));
+};  

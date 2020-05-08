@@ -6,24 +6,21 @@ import {
 import { useDispatch } from 'react-redux';
 import AsyncStorage from '@react-native-community/async-storage';
 
-import { Colors } from '../../themes';
-import { ROUTES } from '../../constants/routes';
-import * as authActions from '../../store/actions/auth';
+import { BaseStyles } from '../../app.styles';
+import { AuthActions } from '../auth/authSlice';
 import styles from './style';
 
 const StartupScreen = props => {
     const dispatch = useDispatch();
-
     useEffect(() => {
         const tryLogin = async () => {
             const userData = await AsyncStorage.getItem('userData');
             if (!userData) {
-                props.navigation.navigate(ROUTES.AUTH);
-                return;
+                dispatch(AuthActions.getFailedSignIn({ error: 'no_saved_token_found' }));
+            } else {
+                // To log the token use JSON.parse(userData).token as the token obj is stored as string in memory
+                dispatch(AuthActions.getSuccessSignIn({ token: userData.token }));
             }
-            props.navigation.navigate(ROUTES.SHOP);
-
-            dispatch(authActions.authenticate(userData.userId, userData.token));
         };
 
         tryLogin();
@@ -31,7 +28,7 @@ const StartupScreen = props => {
 
     return (
         <View style={styles.screen}>
-            <ActivityIndicator size="large" color={Colors.primary} />
+            <ActivityIndicator size="large" color={BaseStyles.colors.black} />
         </View>
     );
 };

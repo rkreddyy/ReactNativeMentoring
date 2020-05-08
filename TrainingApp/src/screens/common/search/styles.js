@@ -9,7 +9,7 @@ export const SearchStyles = StyleSheet.create({
     inputWrapper: {
         backgroundColor: BaseStyles.colors.white,
         borderRadius: 10,
-        borderColor: 'white',
+        borderColor: BaseStyles.colors.white,
         flexDirection: 'row',
     },
     input: {

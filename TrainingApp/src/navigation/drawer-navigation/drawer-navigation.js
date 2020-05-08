@@ -10,6 +10,7 @@ import {
     faEnvelope,
     faPhoneAlt,
     faShareAlt,
+    faSignOutAlt
 } from '@fortawesome/free-solid-svg-icons';
 
 import { ROUTES } from '../routes';
@@ -82,6 +83,20 @@ function CustomDrawerContent({ navigation }) {
                         <FontAwesomeIcon
                             style={styles.itemIcon}
                             icon={faCartArrowDown}
+                            size={BaseStyles.fontSize.l}
+                            color={BaseStyles.colors.blue}
+                        />
+                    )}
+                    onPress={() => navigation.navigate(ROUTES.MY_ORDERS)}
+                />
+                <DrawerItem
+                    label="Sign Out"
+                    labelStyle={styles.itemLabel}
+                    style={styles.item}
+                    icon={() => (
+                        <FontAwesomeIcon
+                            style={styles.itemIcon}
+                            icon={faSignOutAlt}
                             size={BaseStyles.fontSize.l}
                             color={BaseStyles.colors.blue}
                         />
