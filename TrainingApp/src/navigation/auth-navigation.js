@@ -5,28 +5,28 @@ import SignIn from '../screens/auth/sign-in/sign-in';
 import SignUp from '../screens/auth/sign-up/sign-up';
 import RestorePassword from '../screens/auth/restore-password/restore-password';
 
-import { ROUTES } from './routes';
+import { AUTH_ROUTES } from './routes';
 
 const Stack = createStackNavigator();
 
 const AuthNavigation = ({}) => (
     <Stack.Navigator>
         <Stack.Screen
-            name={ROUTES.SING_IN}
+            name={AUTH_ROUTES.SING_IN}
             component={SignIn}
             options={{
                 header: () => null,
             }}
         />
         <Stack.Screen
-            name={ROUTES.SIGN_UP}
+            name={AUTH_ROUTES.SIGN_UP}
             component={SignUp}
             options={{
                 header: () => null,
             }}
         />
         <Stack.Screen
-            name={ROUTES.RESTORE_PASSWORD}
+            name={AUTH_ROUTES.RESTORE_PASSWORD}
             component={RestorePassword}
             options={{
                 header: () => null,

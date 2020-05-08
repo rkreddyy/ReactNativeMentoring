@@ -5,9 +5,8 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import StartupScreen from '../screens/startup';
 import AppNavigation from './app-navigation';
-import Drawer from './drawer-navigation/drawer-navigation';
 
-import { ROUTES } from './routes';
+import { MAIN_ROUTES } from './routes';
 
 const Stack = createStackNavigator();
 
@@ -20,7 +19,7 @@ const MainNavigation = () => {
                     isStartScreenLoading ? (
                         <>
                             <Stack.Screen
-                                name={ROUTES.START_UP}
+                                name={MAIN_ROUTES.START_UP.name}
                                 component={StartupScreen}
                                 options={{
                                     header: () => null,
@@ -29,7 +28,7 @@ const MainNavigation = () => {
                         </>
                     ) : (
                             <Stack.Screen
-                                name={ROUTES.APP}
+                                name={MAIN_ROUTES.APP.name}
                                 component={AppNavigation}
                                 options={{
                                     header: () => null,

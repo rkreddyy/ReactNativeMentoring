@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import AsyncStorage from '@react-native-community/async-storage';
 
-import { signIn, signOut, restorePassword } from '../../store/services/auth';
+import { signIn, signOut, restorePassword } from './auth-service';
 
 const initialState = {
     isSignedIn: false,
@@ -96,7 +96,7 @@ export const fetchSignIn = ({ email, userName, password }) => dispatch => {
         .then(({ status, token, error }) => {
             if (status === 1) {
                 dispatch(AuthActions.getSuccessSignIn({ token }));
-                saveDataToStorage(token);
+                saveTokenToStorage(token);
             } else {
                 dispatch(AuthActions.getFailedSignIn({ error }));
             }
@@ -136,6 +136,6 @@ export const fetchRestorePassword = ({ email }) => dispatch => {
         });
 };
 
-const saveDataToStorage = (token) => {
+const saveTokenToStorage = (token) => {
     AsyncStorage.setItem('userData', JSON.stringify({ token }));
 };  

@@ -8,7 +8,7 @@ import Search from '../search/search';
 import RightIconGroup from './right-icon-group/right-icon-group';
 import LeftIconGroup from './left-icon-group/left-icon-group';
 
-import { HeaderActions } from './headerSlice';
+import { HeaderActions } from '../../../store/header/headerSlice';
 
 function toggleSearch(dispatch) {
     dispatch(HeaderActions.toggleSearch());

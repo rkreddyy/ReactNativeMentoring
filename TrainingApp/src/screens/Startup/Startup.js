@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import AsyncStorage from '@react-native-community/async-storage';
 
 import { BaseStyles } from '../../app.styles';
-import { AuthActions } from '../auth/authSlice';
+import { AuthActions } from '../../store/auth/authSlice';
 import styles from './style';
 
 const StartupScreen = props => {

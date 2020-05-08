@@ -7,7 +7,7 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 import { BaseStyles } from '../../../app.styles';
 import styles, { BackgroundGradientColors } from './styles';
-import { fetchRestorePassword, AuthActions } from '../authSlice';
+import { fetchRestorePassword, AuthActions } from '../../../store/auth/authSlice';
 import FormWarning from '../form-warning/form-warning';
 
 function goBack({ navigation }) {
