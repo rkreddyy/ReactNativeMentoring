@@ -9,12 +9,12 @@
 import React from 'react'
 import 'react-native-gesture-handler';
 import { Provider } from 'react-redux';
-import store from './store/store';
-import MainNavigation from './navigation/main-navigation';
+import appStore from './store/store';
+import MainNavigation from './navigation/app-navigation';
 
 const App = () => {
   return (
-    <Provider store={store}>
+    <Provider store={appStore}>
       <MainNavigation />
     </Provider>
   );

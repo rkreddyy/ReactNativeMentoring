@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, TouchableHighlight } from 'react-native';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import styles from './styles';
 import { BaseStyles } from '../../../app.styles';
+import { ICON_NAMES } from '../../../constants/app-constants';
 
 const ProductDescription = ({ description, wishList, addToCart }) => (
     <View style={styles.wrapper}>
@@ -19,9 +19,9 @@ const ProductDescription = ({ description, wishList, addToCart }) => (
                         wishList();
                     }}>
                     <View style={styles.wishList}>
-                        <FontAwesomeIcon
+                        <Icon
                             style={styles.heartIcon}
-                            icon={faHeart}
+                            name={ICON_NAMES.HEART}
                             size={BaseStyles.fontSize.m}
                             color={BaseStyles.colors.lightBlue}
                         />

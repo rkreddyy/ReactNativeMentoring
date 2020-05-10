@@ -2,13 +2,13 @@ import React from 'react';
 import { Text, TouchableHighlight, TextInput, KeyboardAvoidingView, ScrollView } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import LinearGradient from 'react-native-linear-gradient';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import { BaseStyles } from '../../../app.styles';
 import styles, { BackgroundGradientColors } from './styles';
-import { fetchRestorePassword, AuthActions } from '../../../store/auth/authSlice';
+import { fetchRestorePassword, AuthActions } from '../auth.slice';
 import FormWarning from '../form-warning/form-warning';
+import { ICON_NAMES } from '../../../constants/app-constants';
 
 function goBack({ navigation }) {
     navigation.goBack();
@@ -35,8 +35,8 @@ const RestorePassword = ({ navigation }) => {
                         underlayColor={BaseStyles.colors.LinkHighlighUnderlay}
                         hitSlop={BaseStyles.buttonHitSlop}
                         onPress={() => goBack({ navigation })}>
-                        <FontAwesomeIcon
-                            icon={faArrowLeft}
+                        <Icon
+                            name={ICON_NAMES.ARROW_LEFT}
                             size={BaseStyles.fontSize.m}
                             color={BaseStyles.colors.black}
                         />

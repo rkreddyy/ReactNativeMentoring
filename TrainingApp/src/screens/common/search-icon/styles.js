@@ -4,9 +4,7 @@ import { BaseStyles } from '../../../app.styles';
 
 const styles = StyleSheet.create({
     searchIcon: {
-        marginLeft: BaseStyles.margin.l,
-        marginRight: BaseStyles.margin.s,
-        alignSelf: 'center',
+        marginLeft: BaseStyles.margin.s,
     },
 });
 

@@ -2,12 +2,12 @@ import React from 'react';
 import { Text, TextInput, TouchableHighlight, KeyboardAvoidingView, ScrollView } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import ValidationComponent from 'react-native-form-validator';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import styles, { BackgroundGradientColors } from './styles';
 import { BaseStyles } from '../../../app.styles';
 import FormWarning from '../form-warning/form-warning';
+import { ICON_NAMES } from '../../../constants/app-constants';
 
 class SignUp extends ValidationComponent {
     constructor(props) {
@@ -112,8 +112,8 @@ class SignUp extends ValidationComponent {
                             underlayColor={BaseStyles.colors.LinkHighlighUnderlay}
                             hitSlop={BaseStyles.buttonHitSlop}
                             onPress={() => this.goBack()}>
-                            <FontAwesomeIcon
-                                icon={faArrowLeft}
+                            <Icon
+                                name={ICON_NAMES.ARROW_LEFT}
                                 size={BaseStyles.fontSize.m}
                                 color={BaseStyles.colors.black}
                             />
