@@ -39,9 +39,7 @@ const AppNavigation = () => {
         });
 
         AppStorage.getStoredUserData().then(([userName, email, password, token]) => {
-            if (token) {
-                dispatch(setUserDataIfTokenAlive({ userName, email, password, token }));
-            }
+            dispatch(setUserDataIfTokenAlive({ userName, email, password, token }));
         });
 
         return () => {
@@ -82,14 +80,14 @@ const AppNavigation = () => {
                             />
                         </>
                     ) : (
-                        <Stack.Screen
-                            name={MAIN_ROUTES.AUTH.name}
-                            component={AuthNavigation}
-                            options={{
-                                header: () => null,
-                            }}
-                        />
-                    )}
+                            <Stack.Screen
+                                name={MAIN_ROUTES.AUTH.name}
+                                component={AuthNavigation}
+                                options={{
+                                    header: () => null,
+                                }}
+                            />
+                        )}
                 </Stack.Navigator>
             </NavigationContainer>
         </>

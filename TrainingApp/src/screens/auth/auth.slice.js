@@ -127,27 +127,31 @@ export const fetchSignIn = ({ email, userName, password }) => dispatch => {
 };
 
 export const setUserDataIfTokenAlive = ({ userName, email, password, token }) => dispatch => {
-    dispatch(AuthActions.tokenIsAliveCheck());
+    if (token) {
+        dispatch(AuthActions.tokenIsAliveCheck());
 
-    checkTokenIsAlive(token)
-        .then(({ status, request }) => {
-            if (status === 1) {
-                dispatch(AuthActions.getSuccessTokenIsAliveCheck());
-                dispatch(
-                    AuthActions.setUserData({
-                        userName,
-                        email,
-                        password,
-                        token,
-                    }),
-                );
-            } else {
-                dispatch(AuthActions.getFailedTokenIsAliveCheck({ error: request }));
-            }
-        })
-        .catch(error => {
-            dispatch(AuthActions.getFailedTokenIsAliveCheck({ error: error.message }));
-        });
+        checkTokenIsAlive(token)
+            .then(({ status, request }) => {
+                if (status === 1) {
+                    dispatch(AuthActions.getSuccessTokenIsAliveCheck());
+                    dispatch(
+                        AuthActions.setUserData({
+                            userName,
+                            email,
+                            password,
+                            token,
+                        }),
+                    );
+                } else {
+                    dispatch(AuthActions.getFailedTokenIsAliveCheck({ error: request }));
+                }
+            })
+            .catch(error => {
+                dispatch(AuthActions.getFailedTokenIsAliveCheck({ error: error.message }));
+            });
+    } else {
+        dispatch(AuthActions.getFailedTokenIsAliveCheck({error: 'token not available in local storage'}));
+    }
 };
 
 export const fetchSignOut = ({ token }) => dispatch => {

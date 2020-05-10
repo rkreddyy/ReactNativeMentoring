@@ -1,4 +1,4 @@
-import { PRODUCT_URL } from '../../constants/endPoints'
+import { PRODUCT_API } from '../../constants/endPoints'
 
 /* eslint-disable no-undef */
 export function getProductById(id) {
@@ -14,7 +14,7 @@ export function getProductById(id) {
         redirect: 'follow',
     };
 
-    return fetch(`${PRODUCT_URL}/product&product_id=${id}`, requestOptions).then(response =>
+    return fetch(`${PRODUCT_API}/product&product_id=${id}`, requestOptions).then(response =>
         response.json(),
     );
 }
@@ -32,7 +32,7 @@ export function getProductResourcesByProductId(id) {
         redirect: 'follow',
     };
 
-    return fetch(`${PRODUCT_URL}/resources&product_id=${id}`, requestOptions).then(
+    return fetch(`${PRODUCT_API}/resources&product_id=${id}`, requestOptions).then(
         response => response.json(),
     );
 }
@@ -50,7 +50,7 @@ export function getRelatedProductsByProductId(id) {
         redirect: 'follow',
     };
 
-    return fetch(`${PRODUCT_URL}/related&product_id=${id}`, requestOptions).then(response =>
+    return fetch(`${PRODUCT_API}/related&product_id=${id}`, requestOptions).then(response =>
         response.json(),
     );
 }
@@ -68,7 +68,7 @@ export function getProductReviewsByProductId(id) {
         redirect: 'follow',
     };
 
-    fetch(`${PRODUCT_URL}/product&product_id=${id}`, requestOptions).then(response =>
+    fetch(`${PRODUCT_API}/product&product_id=${id}`, requestOptions).then(response =>
         response.json(),
     );
 }
@@ -86,7 +86,7 @@ export function getCategoryById(id) {
         redirect: 'follow',
     };
 
-    return fetch(`${PRODUCT_URL}/category&category_id=${id}`, requestOptions).then(
+    return fetch(`${PRODUCT_API}/category&category_id=${id}`, requestOptions).then(
         response => response.json(),
     );
 }
@@ -104,7 +104,7 @@ export function getCategories() {
         redirect: 'follow',
     };
 
-    return fetch(`${PRODUCT_URL}/category&category_id=0`, requestOptions).then(response =>
+    return fetch(`${PRODUCT_API}/category&category_id=0`, requestOptions).then(response =>
         response.json(),
     );
 }
@@ -128,7 +128,7 @@ export function getProductsByCategoryId(id, limit = 10, page = 1) {
     };
 
     return fetch(
-        `${PRODUCT_URL}/filter&category_id=${id}&rows=${limit}&page=${page}`,
+        `${PRODUCT_API}/filter&category_id=${id}&rows=${limit}&page=${page}`,
         requestOptions,
     ).then(response => response.json());
 }

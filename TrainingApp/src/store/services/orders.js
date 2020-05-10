@@ -1,4 +1,4 @@
-import { ORDERS_URL } from '../../constants/endPoints'
+import { ORDERS_API } from '../../constants/endPoints'
 
 /* eslint-disable no-undef */
 export function getOrdersHistory(token) {
@@ -18,5 +18,5 @@ export function getOrdersHistory(token) {
         redirect: 'follow',
     };
 
-    return fetch(ORDERS_URL, requestOptions).then(response => response.json());
+    return fetch(ORDERS_API, requestOptions).then(response => response.json());
 }

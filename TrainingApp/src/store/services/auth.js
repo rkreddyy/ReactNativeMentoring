@@ -1,4 +1,4 @@
-import { AUTH_URL } from '../../constants/endPoints'
+import { AUTH_API } from '../../constants/endPoints'
 
 /* eslint-disable no-undef */
 export function signIn({ email, userName, password }) {
@@ -23,7 +23,7 @@ export function signIn({ email, userName, password }) {
         body: formData,
     };
 
-    return fetch(`${AUTH_URL}/login`, requestOptions).then(response => response.json());
+    return fetch(`${AUTH_API}/login`, requestOptions).then(response => response.json());
 }
 
 export function signOut(token) {
@@ -40,7 +40,7 @@ export function signOut(token) {
         redirect: 'follow',
     };
 
-    return fetch(`${AUTH_URL}/logout`, requestOptions).then(response => response.json());
+    return fetch(`${AUTH_API}/logout`, requestOptions).then(response => response.json());
 }
 
 export function restorePassword(email) {
@@ -63,5 +63,5 @@ export function checkTokenIsAlive(token) {
         redirect: 'follow',
     };
 
-    return fetch(`${AUTH_URL}/login`, requestOptions).then(response => response.json());
+    return fetch(`${AUTH_API}/login`, requestOptions).then(response => response.json());
 }

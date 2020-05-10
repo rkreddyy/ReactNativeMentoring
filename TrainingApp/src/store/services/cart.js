@@ -1,4 +1,4 @@
-import { CART_URL } from '../../constants/endPoints'
+import { CHECKOUT_API } from '../../constants/endPoints'
 
 /* eslint-disable no-undef */
 export function getProductsInCart(token) {
@@ -18,7 +18,7 @@ export function getProductsInCart(token) {
         redirect: 'follow',
     };
 
-    return fetch(CART_URL, requestOptions).then(response => response.json());
+    return fetch(`${CHECKOUT_API}/cart`, requestOptions).then(response => response.json());
 }
 
 export function addProductToCart({ token, productId, quantity = 1 }) {
@@ -39,7 +39,7 @@ export function addProductToCart({ token, productId, quantity = 1 }) {
     };
 
     return fetch(
-        `${CART_URL}&product_id=${productId}&quantity=${quantity}`,
+        `${CHECKOUT_API}/cart&product_id=${productId}&quantity=${quantity}`,
         requestOptions,
     ).then(response => response.json());
 }
