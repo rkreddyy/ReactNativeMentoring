@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { FlatList, View, Text } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import styles from './styles';
 import Header from '../common/header/header';
@@ -10,9 +11,11 @@ import LoadingIndicator from '../common/loading-indicator/loading-indicator';
 import { BaseStyles } from '../../app.styles';
 import FormWarning from '../auth/form-warning/form-warning';
 
-const renderOrder = order => {
+const renderOrder = (order, goToMap) => {
     return (
-        <View style={styles.orderWrapper}>
+        <TouchableOpacity
+            style={styles.orderWrapper}
+            onPress={() => { goToMap(); }}>
             <View style={styles.orderStatus}>
                 <Text>Status:</Text>
                 <Text>{order.status}</Text>
@@ -25,7 +28,7 @@ const renderOrder = order => {
                 <Text>Total Cost:</Text>
                 <Text>{order.total}</Text>
             </View>
-        </View>
+        </TouchableOpacity>
     );
 };
 
@@ -40,7 +43,7 @@ const Orders = ({ navigation, route }) => {
     const { title } = route.params;
     const goBack = () => navigation.goBack();
     const goToCart = () => navigation.navigate(MAIN_ROUTES.MY_CART.name, { title: MAIN_ROUTES.MY_CART.title });
-
+    const goToMap = () => navigation.navigate(MAIN_ROUTES.MAP.name);
     const { isLoading, error, orders } = useSelector(store => store.orders);
     return (
         <>
@@ -49,7 +52,7 @@ const Orders = ({ navigation, route }) => {
             {!error ? (
                 <FlatList
                     data={orders}
-                    renderItem={order => renderOrder(order.item)}
+                    renderItem={order => renderOrder(order.item, goToMap)}
                     keyExtractor={order => order.order_id}
                     style={styles.wrapper}
                     refreshing={isLoading}
