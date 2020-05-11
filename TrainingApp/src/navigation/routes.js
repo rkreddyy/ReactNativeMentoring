@@ -1,6 +1,4 @@
 export const MAIN_ROUTES = {
-    APP: { name: 'App' },
-    START_UP: { name: 'Startup' },
     MAIN: { name: 'Main', title: 'Products' },
     PRODUCT_DETAILS: { name: 'ProductDetails', title: 'Product Details' },
     AUTH: { name: 'Auth' },
@@ -8,15 +6,16 @@ export const MAIN_ROUTES = {
     WISH_LIST: { name: 'WishList', title: 'My Wishlist' },
     MY_CART: { name: 'MyCart', title: 'My Cart' },
     MY_ORDERS: { name: 'MyOrders', title: 'My Orders' },
-    MAPS: { name: 'Maps', label: 'Maps' },
     EMAIL: { name: 'Email' },
     CALL: { name: 'Call' },
     SHARE: { name: 'Share' },
+    PRODUCT_LIST: { name: 'ProductList' },
+    MAP: { name: 'Map', title: 'Google Map' },
 };
 
 export const AUTH_ROUTES = {
+    WELCOME_PAGE: 'Welcome',
     SING_IN: 'SignIn',
     SIGN_OUT: 'SignOut',
-    SIGN_UP: 'SignUp',
     RESTORE_PASSWORD: 'RestorePassword',
 };

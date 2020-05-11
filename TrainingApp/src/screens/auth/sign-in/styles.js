@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         margin: BaseStyles.margin.l,
         color: BaseStyles.colors.lightBlue,
-        marginTop: 260,
+        marginTop: 220,
     },
     inputGroup: {
         flex: 1,
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     restorePassword: {
         ...BaseStylesSets.containerRightLeftMargins,
         alignSelf: 'flex-end',
-        marginTop: 20,
+        marginTop: 0,
     },
     link: {
         ...BaseStylesSets.baseLink,
@@ -41,13 +41,28 @@ const styles = StyleSheet.create({
         marginBottom: BaseStyles.margin.l,
     },
     signInButton: {
-        alignSelf: 'stretch',
+        width: 350,
         backgroundColor: BaseStyles.colors.blue,
         padding: BaseStyles.padding.m,
         margin: BaseStyles.margin.l,
+        height: 40,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+    },
+    signInButtonCollapsed: {
+        width: 100,
+        backgroundColor: BaseStyles.colors.blue,
+        padding: BaseStyles.padding.m,
+        margin: BaseStyles.margin.l,
+        height: 40,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginLeft: 'auto',
+        marginRight: 'auto',
     },
     signInText: {
-        textAlign: 'center',
         color: BaseStyles.colors.white,
         textTransform: 'uppercase',
         fontSize: BaseStyles.fontSize.m,

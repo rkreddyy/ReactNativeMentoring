@@ -1,10 +1,10 @@
 import { StyleSheet } from 'react-native';
 import { BaseStyles } from '../../../app.styles';
-import { batch } from 'react-redux';
 
 const styles = StyleSheet.create({
     wrapper: {
-        margin: BaseStyles.margin.s,
+        padding: BaseStyles.margin.s,
+        backgroundColor: BaseStyles.colors.white,
     },
     header: {
         color: BaseStyles.colors.lightBlue,

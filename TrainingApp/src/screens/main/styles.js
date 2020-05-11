@@ -4,15 +4,17 @@ import { BaseStyles } from '../../app.styles';
 const MainStyles = StyleSheet.create({
     wrapper: {
         flex: 1,
+        backgroundColor: BaseStyles.colors.white,
     },
     groups: {
         flexDirection: 'row',
     },
-    groupsScrollable: {
-        height: 110,
-    },
     items: {
         padding: BaseStyles.padding.l,
+    },
+    spinner: {
+        marginTop: 'auto',
+        marginBottom: 'auto',
     },
 });
 

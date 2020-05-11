@@ -3,9 +3,20 @@ import { StyleSheet } from 'react-native';
 import { BaseStyles } from '../../../app.styles';
 
 const ProductStyles = StyleSheet.create({
+    emptyItem: {
+        marginHorizontal: 5,
+        backgroundColor: BaseStyles.colors.transparent,
+        flexBasis: 100,
+        flexGrow: 10,
+        flexShrink: 2,
+        marginBottom: BaseStyles.margin.xs,
+        padding: BaseStyles.padding.m,
+    },
     wrapper: {
-        marginRight: 'auto',
-        flexBasis: 190,
+        // flex: 1,
+        marginHorizontal: 5,
+        flexBasis: 100,
+        flexGrow: 10,
         flexShrink: 2,
         marginBottom: BaseStyles.margin.xs,
         padding: BaseStyles.padding.m,
@@ -13,6 +24,7 @@ const ProductStyles = StyleSheet.create({
         borderRadius: 5,
         borderWidth: 1,
         borderColor: BaseStyles.colors.lightGrey,
+        backgroundColor: BaseStyles.colors.white,
     },
     imageWrapper: {
         alignItems: 'center',
@@ -23,7 +35,7 @@ const ProductStyles = StyleSheet.create({
     },
     image: {
         height: 90,
-        width: 40,
+        width: 90,
     },
     priceWrapper: {
         flexDirection: 'row',
@@ -41,48 +53,46 @@ const ProductStyles = StyleSheet.create({
         color: BaseStyles.colors.blue,
         fontWeight: 'bold',
     },
-});
 
-export const ExtendedStyles = StyleSheet.create({
-    wrapper: {
+    wrapperExpanded: {
         flex: 1,
-        margin: BaseStyles.margin.xs,
         padding: BaseStyles.padding.m,
+        backgroundColor: BaseStyles.colors.white,
     },
-    imageWrapper: {
+    imageWrapperExpanded: {
         alignItems: 'center',
         justifyContent: 'center',
         alignSelf: 'stretch',
         overflow: 'hidden',
         marginTop: BaseStyles.margin.s,
     },
-    image: {
+    imageExpanded: {
         height: 250,
-        width: 120,
+        width: 250,
     },
-    priceWrapper: {
+    priceWrapperExpanded: {
         flexDirection: 'row',
     },
-    name: {
+    nameExpanded: {
         fontSize: BaseStyles.fontSize.m,
     },
-    price: {
+    priceExpanded: {
         fontWeight: 'bold',
         fontSize: BaseStyles.fontSize.m,
     },
-    oldPrice: {
+    oldPriceExpanded: {
         marginLeft: BaseStyles.margin.xs,
         fontWeight: 'bold',
         textDecorationLine: 'line-through',
         fontSize: BaseStyles.fontSize.m,
     },
-    discount: {
+    discountExpanded: {
         marginLeft: BaseStyles.margin.xs,
         color: BaseStyles.colors.blue,
         fontWeight: 'bold',
         fontSize: BaseStyles.fontSize.m,
     },
-    controlsWrapper: {
+    controlsWrapperExpanded: {
         flex: 1,
         flexDirection: 'row',
         height: 10,
@@ -90,24 +100,24 @@ export const ExtendedStyles = StyleSheet.create({
         alignItems: 'center',
         marginTop: BaseStyles.margin.s,
     },
-    control: {
+    controlExpanded: {
         backgroundColor: BaseStyles.colors.lightBlue,
         width: 10,
         height: 10,
         borderRadius: 10,
         margin: BaseStyles.margin.xs,
     },
-    controlActive: {
+    controlActiveExpanded: {
         backgroundColor: BaseStyles.colors.lightBlue,
         width: 15,
         height: 15,
         borderRadius: 15,
         margin: BaseStyles.margin.xs,
     },
-    stock: {
+    stockExpanded: {
         color: BaseStyles.colors.white,
     },
-    stockWrapper: {
+    stockWrapperExpanded: {
         backgroundColor: BaseStyles.colors.lightBlue,
         padding: BaseStyles.padding.xs,
         width: 70,
@@ -116,5 +126,7 @@ export const ExtendedStyles = StyleSheet.create({
         marginLeft: 'auto',
     },
 });
+
+export const ExtendedStyles = StyleSheet.create({});
 
 export default ProductStyles;

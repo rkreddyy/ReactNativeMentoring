@@ -3,9 +3,14 @@ import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import rootReducer from './rootReducer';
 import LogStateMiddleware from './logStateMiddleware';
 
-const store = configureStore({
+const appStore = configureStore({
     reducer: rootReducer,
-    middleware: [...getDefaultMiddleware(), LogStateMiddleware],
+    middleware: [
+        ...getDefaultMiddleware({
+            serializableCheck: false,
+        }),
+        LogStateMiddleware,
+    ],
 });
 
-export default store;
+export default appStore;
