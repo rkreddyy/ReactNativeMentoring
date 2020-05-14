@@ -9,7 +9,7 @@ import FormWarning from '../form-warning/form-warning';
 import { AuthActions, fetchSignIn } from '../auth.slice';
 import { isEmail } from '../utils';
 import { AUTH_ROUTES } from '../../../navigation/routes';
-import ButtonWithLoading from '../../common/button-with-loading/button-with-loading';
+import ButtonWithLoading from '../../components/button-with-loading/button-with-loading';
 
 function onChangeEmailField(dispatch, text) {
     if (isEmail(text)) {

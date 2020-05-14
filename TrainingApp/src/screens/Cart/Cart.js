@@ -5,14 +5,14 @@ import IconFA from 'react-native-vector-icons/FontAwesome';
 import IconFA5 from 'react-native-vector-icons/Foundation';
 
 import styles from './styles';
-import Header from '../common/header/header';
-import LoadingIndicator from '../common/loading-indicator/loading-indicator';
+import Header from '../components/header/header';
+import LoadingIndicator from '../components/loading-indicator/loading-indicator';
 import { BaseStyles } from '../../app.styles';
 import Warning from '../auth/form-warning/form-warning';
 import { fetchGetProductsInCart } from './cart.slice';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { ICON_NAMES } from '../../constants/app-constants';
-import ButtonWithLoading from '../common/button-with-loading/button-with-loading';
+import ButtonWithLoading from '../components/button-with-loading/button-with-loading';
 import { MAIN_ROUTES } from '../../navigation/routes';
 
 const renderProduct = ({ product, navigation }) => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
 
-import Header from '../common/header/header';
+import Header from '../components/header/header';
 
 import styles from './styles';
 
