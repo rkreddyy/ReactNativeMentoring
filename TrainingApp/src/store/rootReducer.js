@@ -1,6 +1,6 @@
 import { combineReducers } from '@reduxjs/toolkit';
 
-import headerReducer from '../screens/common/header/header.slice';
+import headerReducer from '../screens/components/header/header.slice';
 import authReducer from '../screens/auth/auth.slice';
 import mainReducer from '../screens/main/main.slice';
 import productListReducer from '../screens/product-list/product-list.slice';

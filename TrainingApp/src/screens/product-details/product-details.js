@@ -4,9 +4,9 @@ import { XmlEntities } from 'html-entities';
 import htmlToText from 'html-to-text';
 import { useDispatch } from 'react-redux';
 
-import Header from '../common/header/header';
-import Divider from '../common/divider/divider';
-import Product from '../common/product/product';
+import Header from '../components/header/header';
+import Divider from '../components/divider/divider';
+import Product from '../components/product/product';
 import ProductDescription from './description/description';
 import { fetchAddProductToCart } from '../cart/cart.slice';
 import { MAIN_ROUTES } from '../../navigation/routes';

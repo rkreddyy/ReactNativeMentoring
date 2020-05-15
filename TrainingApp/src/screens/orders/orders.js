@@ -4,10 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import styles from './styles';
-import Header from '../common/header/header';
+import Header from '../components/header/header';
 import { MAIN_ROUTES } from '../../navigation/routes';
 import { fetchOrders } from './orders.slice';
-import LoadingIndicator from '../common/loading-indicator/loading-indicator';
+import LoadingIndicator from '../components/loading-indicator/loading-indicator';
 import { BaseStyles } from '../../app.styles';
 import FormWarning from '../auth/form-warning/form-warning';
 

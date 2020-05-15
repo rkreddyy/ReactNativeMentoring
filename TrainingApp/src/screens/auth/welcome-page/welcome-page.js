@@ -4,7 +4,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import { useSelector } from 'react-redux';
 
 import styles, { BackgroundGradientColors } from './styles';
-import LoadingIndicator from '../../common/loading-indicator/loading-indicator';
+import LoadingIndicator from '../../components/loading-indicator/loading-indicator';
 import { BaseStyles } from '../../../app.styles';
 import { AUTH_ROUTES } from '../../../navigation/routes';
 

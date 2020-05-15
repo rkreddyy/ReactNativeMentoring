@@ -3,14 +3,14 @@ import { RefreshControl, FlatList, View, Image, Text, TouchableHighlight } from 
 import { useDispatch, useSelector } from 'react-redux';
 import { XmlEntities } from 'html-entities';
 
-import Header from '../common/header/header';
+import Header from '../components/header/header';
 import Warning from '../auth/form-warning/form-warning';
 import { ProductListActions, fetchProducts, refreshProducts, loadMoreProducts } from './product-list.slice';
 import { BaseStyles } from '../../app.styles';
 
 import styles from './styles';
 import { MAIN_ROUTES } from '../../navigation/routes';
-import LoadingIndicator from '../common/loading-indicator/loading-indicator';
+import LoadingIndicator from '../components/loading-indicator/loading-indicator';
 
 const entities = new XmlEntities();
 

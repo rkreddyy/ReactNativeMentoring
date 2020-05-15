@@ -4,7 +4,7 @@ import { XmlEntities } from 'html-entities';
 
 import styles from './styles';
 import { BaseStyles } from '../../../app.styles';
-import Product from '../../common/product/product';
+import Product from '../../components/product/product';
 
 const COLUMNS_NUMBER = 2;
 
