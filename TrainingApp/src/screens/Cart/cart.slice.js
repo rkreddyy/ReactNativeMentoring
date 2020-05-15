@@ -1,8 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import { addProductToCart, getProductsInCart } from '../../store/services/cart';
-import { AppModalActions } from '../../navigation/app-modal/app-modal.slice';
-import { getHideModalButtonConfig } from '../../navigation/app-modal/app-modal';
+import Toast from 'react-native-toast-module';
 
 const initialState = {
     isLoading: false,
@@ -60,33 +59,15 @@ export const fetchAddProductToCart = ({ product }) => (dispatch, getState) => {
         .then(({ products, totals, weight, error }) => {
             if (error) {
                 dispatch(CartActions.getFailedAdding({ error }));
-                dispatch(
-                    AppModalActions.showModal({
-                        iconName: 'warning',
-                        message: 'There are no living internet connection',
-                        buttons: [getHideModalButtonConfig({ dispatch, label: 'Ok' })],
-                    }),
-                );
+                Toast.showToast('Error. Please try again');
             } else {
                 dispatch(CartActions.getSuccessAdding({ products, totals, weight }));
-                dispatch(
-                    AppModalActions.showModal({
-                        iconName: 'check-circle',
-                        message: 'Product added to your cart',
-                        buttons: [getHideModalButtonConfig({ dispatch, label: 'Ok' })],
-                    }),
-                );
+                Toast.showToast('Product Added to cart');
             }
         })
         .catch(error => {
             dispatch(CartActions.getFailedAdding({ error: error.message }));
-            dispatch(
-                AppModalActions.showModal({
-                    iconName: 'warning',
-                    message: 'There are no living internet connection',
-                    buttons: [getHideModalButtonConfig({ dispatch, label: 'Ok' })],
-                }),
-            );
+            Toast.showToast('Error. Please try again');
         });
 };
 
