@@ -70,7 +70,6 @@ export const fetchAddProductToCart = ({ product }) => (dispatch, getState) => {
             }
         })
         .catch(error => {
-            console.log('error....' + error.message)
             dispatch(CartActions.getFailedAdding({ error: error.message }));
             Toast.showToast('Error. Please try again');
         });
