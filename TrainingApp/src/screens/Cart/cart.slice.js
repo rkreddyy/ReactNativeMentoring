@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import PushNotification from '../../utils/app-push-notifications';
 
 import { addProductToCart, getProductsInCart } from '../../store/services/cart';
 import Toast from 'react-native-toast-module';
@@ -63,9 +64,13 @@ export const fetchAddProductToCart = ({ product }) => (dispatch, getState) => {
             } else {
                 dispatch(CartActions.getSuccessAdding({ products, totals, weight }));
                 Toast.showToast('Product Added to cart');
+                PushNotification.show({
+                    message: 'New product in cart'
+                });
             }
         })
         .catch(error => {
+            console.log('error....' + error.message)
             dispatch(CartActions.getFailedAdding({ error: error.message }));
             Toast.showToast('Error. Please try again');
         });
