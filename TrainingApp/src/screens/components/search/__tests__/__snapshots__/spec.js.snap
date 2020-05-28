@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search component renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#00a8f3",
+      "padding": 12,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "borderColor": "white",
+        "borderRadius": 10,
+        "flexDirection": "row",
+      }
+    }
+  >
+    <SearchIcon
+      needToDisplay={true}
+    />
+    <TextInput
+      allowFontScaling={true}
+      placeholder="Search for product"
+      rejectResponderTermination={true}
+      style={
+        Object {
+          "height": 40,
+        }
+      }
+      underlineColorAndroid="transparent"
+    />
+  </View>
+</View>
+`;

@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonWithLoading component correctly renders all props 1`] = `
+<TouchableHighlight
+  activeOpacity={0.85}
+  delayPressOut={100}
+  hitSlop={
+    Object {
+      "bottom": 30,
+      "left": 20,
+      "right": 50,
+      "top": 30,
+    }
+  }
+  onPress={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#148cbf",
+      "height": 40,
+      "justifyContent": "center",
+      "margin": 30,
+      "marginLeft": "auto",
+      "marginRight": "auto",
+      "padding": 8,
+      "width": 100,
+    }
+  }
+  underlayColor="#00a8f3"
+>
+  <LoadingIndicator />
+</TouchableHighlight>
+`;
+
+exports[`ButtonWithLoading component correctly renders hide loading indicator 1`] = `
+<TouchableHighlight
+  activeOpacity={0.85}
+  delayPressOut={100}
+  hitSlop={
+    Object {
+      "bottom": 30,
+      "left": 20,
+      "right": 50,
+      "top": 30,
+    }
+  }
+  onPress={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "alignSelf": "stretch",
+      "backgroundColor": "#148cbf",
+      "flex": 1,
+      "height": 40,
+      "justifyContent": "center",
+      "margin": 30,
+      "padding": 8,
+    }
+  }
+  underlayColor="#00a8f3"
+>
+  <Text
+    style={
+      Object {
+        "color": "#ffffff",
+        "fontSize": 18,
+        "textTransform": "uppercase",
+      }
+    }
+  />
+</TouchableHighlight>
+`;
+
+exports[`ButtonWithLoading component correctly renders label text 1`] = `
+<TouchableHighlight
+  activeOpacity={0.85}
+  delayPressOut={100}
+  hitSlop={
+    Object {
+      "bottom": 30,
+      "left": 20,
+      "right": 50,
+      "top": 30,
+    }
+  }
+  onPress={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "alignSelf": "stretch",
+      "backgroundColor": "#148cbf",
+      "flex": 1,
+      "height": 40,
+      "justifyContent": "center",
+      "margin": 30,
+      "padding": 8,
+    }
+  }
+  underlayColor="#00a8f3"
+>
+  <Text
+    style={
+      Object {
+        "color": "#ffffff",
+        "fontSize": 18,
+        "textTransform": "uppercase",
+      }
+    }
+  >
+    Test button
+  </Text>
+</TouchableHighlight>
+`;
+
+exports[`ButtonWithLoading component correctly renders show loading indicator 1`] = `
+<TouchableHighlight
+  activeOpacity={0.85}
+  delayPressOut={100}
+  hitSlop={
+    Object {
+      "bottom": 30,
+      "left": 20,
+      "right": 50,
+      "top": 30,
+    }
+  }
+  onPress={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#148cbf",
+      "height": 40,
+      "justifyContent": "center",
+      "margin": 30,
+      "marginLeft": "auto",
+      "marginRight": "auto",
+      "padding": 8,
+      "width": 100,
+    }
+  }
+  underlayColor="#00a8f3"
+>
+  <LoadingIndicator />
+</TouchableHighlight>
+`;
