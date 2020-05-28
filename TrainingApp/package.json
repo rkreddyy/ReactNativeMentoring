@@ -11,7 +11,8 @@
     "test:update": "jest --verbose --updateSnapshot",
     "test:watch": "jest --verbose --watch",
     "coverage": "jest --verbose --coverage && open ./coverage/lcov-report/index.html",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "storybook": "start-storybook -p 7007"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
@@ -55,15 +56,21 @@
     "@babel/core": "^7.6.2",
     "@babel/runtime": "^7.6.2",
     "@react-native-community/eslint-config": "^0.0.5",
+    "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-links": "^5.3.19",
+    "@storybook/addons": "^5.3.19",
+    "@storybook/react-native": "^5.3.19",
+    "@storybook/react-native-server": "^5.3.19",
     "babel-jest": "^24.9.0",
+    "babel-loader": "^8.1.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "enzyme-to-json": "^3.4.4",
     "eslint": "^6.5.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^25.3.0",
-    "mockdate": "^2.0.5",
     "metro-react-native-babel-preset": "^0.56.0",
+    "mockdate": "^2.0.5",
     "react-test-renderer": "16.9.0",
     "reactotron-react-native": "^5.0.0"
   },
