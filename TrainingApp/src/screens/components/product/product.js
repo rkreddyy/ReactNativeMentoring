@@ -7,14 +7,6 @@ const getPriceString = item => {
     return `$${item.price}`;
 };
 
-// function getOldPriceString(item) {
-//     return `$${item.oldPrice}`;
-// }
-
-// function getDiscountString(item) {
-//     return `${item.discount}% Off`;
-// }
-
 const getStockButton = isExtended =>
     isExtended ? (
         <TouchableOpacity

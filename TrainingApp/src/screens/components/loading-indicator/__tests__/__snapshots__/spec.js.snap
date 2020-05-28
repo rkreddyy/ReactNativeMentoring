@@ -1,0 +1,215 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoadingIndicator component renders correctly with default props 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "flexDirection": "row",
+      "justifyContent": "center",
+      "minHeight": 40,
+    }
+  }
+>
+  <AnimatedComponent
+    key="0"
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderRadius": 7,
+          "height": 7,
+          "marginLeft": 2,
+          "marginRight": 2,
+          "width": 7,
+        },
+        Object {
+          "backgroundColor": "#ffffff",
+          "transform": Array [
+            Object {
+              "translateY": 0,
+            },
+          ],
+        },
+      ]
+    }
+  />
+  <AnimatedComponent
+    key="1"
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderRadius": 7,
+          "height": 7,
+          "marginLeft": 2,
+          "marginRight": 2,
+          "width": 7,
+        },
+        Object {
+          "backgroundColor": "#ffffff",
+          "transform": Array [
+            Object {
+              "translateY": 0,
+            },
+          ],
+        },
+      ]
+    }
+  />
+  <AnimatedComponent
+    key="2"
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderRadius": 7,
+          "height": 7,
+          "marginLeft": 2,
+          "marginRight": 2,
+          "width": 7,
+        },
+        Object {
+          "backgroundColor": "#ffffff",
+          "transform": Array [
+            Object {
+              "translateY": 0,
+            },
+          ],
+        },
+      ]
+    }
+  />
+  <AnimatedComponent
+    key="3"
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderRadius": 7,
+          "height": 7,
+          "marginLeft": 2,
+          "marginRight": 2,
+          "width": 7,
+        },
+        Object {
+          "backgroundColor": "#ffffff",
+          "transform": Array [
+            Object {
+              "translateY": 0,
+            },
+          ],
+        },
+      ]
+    }
+  />
+</View>
+`;
+
+exports[`LoadingIndicator component renders correctly with with passed props 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "flexDirection": "row",
+      "justifyContent": "center",
+      "minHeight": 40,
+    }
+  }
+>
+  <AnimatedComponent
+    key="0"
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderRadius": 7,
+          "height": 7,
+          "marginLeft": 2,
+          "marginRight": 2,
+          "width": 7,
+        },
+        Object {
+          "backgroundColor": "#ffffff",
+          "transform": Array [
+            Object {
+              "translateY": 0,
+            },
+          ],
+        },
+      ]
+    }
+  />
+  <AnimatedComponent
+    key="1"
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderRadius": 7,
+          "height": 7,
+          "marginLeft": 2,
+          "marginRight": 2,
+          "width": 7,
+        },
+        Object {
+          "backgroundColor": "#ffffff",
+          "transform": Array [
+            Object {
+              "translateY": 0,
+            },
+          ],
+        },
+      ]
+    }
+  />
+  <AnimatedComponent
+    key="2"
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderRadius": 7,
+          "height": 7,
+          "marginLeft": 2,
+          "marginRight": 2,
+          "width": 7,
+        },
+        Object {
+          "backgroundColor": "#ffffff",
+          "transform": Array [
+            Object {
+              "translateY": 0,
+            },
+          ],
+        },
+      ]
+    }
+  />
+  <AnimatedComponent
+    key="3"
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderRadius": 7,
+          "height": 7,
+          "marginLeft": 2,
+          "marginRight": 2,
+          "width": 7,
+        },
+        Object {
+          "backgroundColor": "#ffffff",
+          "transform": Array [
+            Object {
+              "translateY": 0,
+            },
+          ],
+        },
+      ]
+    }
+  />
+</View>
+`;

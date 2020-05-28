@@ -7,13 +7,16 @@ import SearchIcon from '../../search-icon/search-icon';
 import { BaseStyles } from '../../../../app.styles';
 import styles from './styles';
 import { ICON_NAMES } from '../../../../constants/app-constants';
+import Toast from 'react-native-toast-module';
 
 const RightIconGroup = ({ toggleSearch, isSearchVisible, goToCart }) => (
     <View style={styles.wrapper}>
         <TouchableHighlight
             underlayColor={BaseStyles.colors.transparent}
             hitSlop={BaseStyles.buttonHitSlop}
-            onPress={toggleSearch}>
+            onPress={() => {
+                console.log(Toast.sampleMethod('1', 1, console.log));
+            }}>
             <SearchIcon needToDisplay={!isSearchVisible} color={BaseStyles.colors.white} />
         </TouchableHighlight>
         <TouchableHighlight
